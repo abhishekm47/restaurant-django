@@ -1,0 +1,932 @@
+{% load staticfiles %}
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<!-- Mirrored from devitfamily.com/html/owl/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Jul 2017 23:24:19 GMT -->
+
+<head>
+     <meta property="og:image" content="{% static 'img/favicon.png' %}">
+  <meta name="twitter:card" content="{% static 'img/favicon.png' %}">
+   <meta property="fb:app_id" content="468579063493515" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">   
+  <meta name="keywords" content="DiwaliPalace, indian restaurant, , amsterdam restaurants nepalese, amsterdam, schiphol airport restaurants, chicken , beef amsterdam, steak beef, diwali palace, number one restaurant, top restaurant, user friendly, Netherlands, Amstelveen, Amsterdamseweg, Amersfoort, diwali palace indian nepalese restaurant">
+  <meta name="description" content="Diwali Palace is regarded as a symbol of royalty and elegance. Here at Diwali Palace, we believe that cooking is a celebration of life and that traditional foods are continuing part of our tradition and culture.">
+  <meta content="DIWALI PALACE | INDIAN NEPALESE RESTAURANT">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137036249-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137036249-2');
+</script>
+
+    <!--====== TITLE TAG ======-->
+    <title>{% block title %} Home {% endblock %} | Diwali Palace</title>
+
+    <!--====== FAVICON ICON =======-->
+    <link rel="shortcut icon" type="image/ico" href="{% static 'img/favicon.png' %}" />
+
+    <!--====== STYLESHEETS =======-->
+    <!-- <script src="{% static 'script.js' %}"></script> -->
+    <!-- <script src="{% static 'jquery.min.js' %}"></script> -->
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pogo-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/timepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <!--====== MAIN STYLESHEETS ======-->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <style>
+        .pro-card-hov{
+padding: 0.5rem 2rem; border: 1px solid #a9a9a942; margin: 0.5rem 0; position: relative;
+        }
+
+
+        .pro-card-hov:hover{
+            box-shadow: 1px 1px 2px darkgray;
+            background-color: #d0963f0f;
+        }
+
+        .pro-card-hov span{
+position: absolute; top: 0; right: 0; padding: 5px 12px; border-left: 1px solid #a9a9a942; border-bottom: 1px solid #a9a9a942; color: #d0963f; cursor: pointer;
+        }
+
+.pro-card-hov p:nth-child(2){font-size: 1.7rem; font-weight: 700;}
+.pro-card-hov p:nth-child(3){font-size: 1.4rem; color: #5f5d5d;}
+/* .pro-card-hov p:nth-child(4){font-size: 1.4rem; color: #5f5d5d;font-style: italic;} */
+.pro-card-hov p:nth-child(4){font-size: 1.8rem; font-weight: 700; padding: 0 0.5rem; color: #d0963f;}
+.pro-card-hov .q-div .select-q{width: 100px; border-radius: 5px; padding: 6px;}
+.order-btn{border-radius: 5px; padding: 3px 15px; background-color: #d0963f; color: white;}
+input[type=submit]{-webkit-appearance: meter;}
+
+        .sticky {
+        position: fixed;
+        top: 82px;
+        width: 100%;
+        left: 0;
+        z-index: 1;
+        }
+
+        li a.h-light{
+           color:#d0963e ;
+        }
+
+        .price_color {
+          color: rgb(208, 150, 63);
+        }
+
+        .p-scroll-bar{
+            list-style: none;
+            display: -webkit-inline-box; 
+            padding: 1rem 2rem;    
+            overflow: scroll; 
+            width: 100%;
+            background-color: white;
+        }
+
+        .p-scroll-bar li{
+            padding: 0 20px;
+        }
+
+        .p-scroll-bar::-webkit-scrollbar{
+             display: none;
+        }
+        .cat-head{
+position: relative;  margin-top: 0.8rem;
+        }
+         .cat-head .img-sec{
+background-color: darkslategray; height: 100%;
+         }
+ .cat-head .img-sec img{
+         object-fit: cover;
+    height: 100%;
+    width: 100%;
+    object-position: bottom;
+ }
+ .cat-head .namesec{
+         padding: 1.2rem 2.2rem; background-color: #d0963e; color: white; font-weight: 600; font-size: 1.7rem; width: 100%; bottom: 0;}
+
+         .my-1{
+             margin: 0.25rem 0;
+         }
+
+         .prod-container{
+             padding: 0;
+         }
+
+         @media only screen and (min-width: 600px) {
+            .prod-container{
+                padding: 0 8rem;
+            }
+        }
+        .cate_dis{
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--- PRELOADER -->
+    <div class="preeloader">
+        <div class="preloader-spinner"><i class="fa fa-cutlery"></i></div>
+    </div>
+
+    <!--SCROLL TO TOP-->
+    <a href="#home" class="scrolltotop"><i class="fa fa-long-arrow-up"></i></a>
+
+ <header class="top-area single-page contact-us-page" id="home">
+        <div class="page-barner-bg"></div>
+        <div class="header-top-area">
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-6 col-sm-8">
+                            <div class="call-to-action">
+                                <p><i class="fa fa-envelope-o"></i>Email: <a href="#">info@diwalipalace.nl</a></p>
+                                <p><i class="fa fa-phone"></i>Telephone: <a href="#">+31 20 364 2247</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-lg-6 col-sm-4">
+                            <div class="book-table-popup">
+                                <a href="{% url 'reservation' %}">Book a table</a>
+                            </div>
+                            <div class="top-social-bookmark">
+                                <ul>
+                                    <li><a href="https://www.facebook.com/diwalipalace001/"><i
+                                                class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/diwalioffice?lang=en"><i
+                                                class="fa fa-twitter"></i></a></li>
+                                    <li><a
+                                            href="https://www.tripadvisor.in/Restaurant_Review-g1024752-d12185859-Reviews-Diwali_Palace-Amstelveen_North_Holland_Province.html"><i
+                                                class="fa fa-tripadvisor" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--MAINMENU AREA-->
+            <div class="mainmenu-area" id="mainmenu-area">
+                <div class="mainmenu-area-bg"></div>
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button class="collapsed navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-scrollspy">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                             <a href="" class="navbar-brand"><img style="height: 50px !important;" src="{% static 'img/favicon.png' %}" alt="logo"></a>
+                            <a href="" class="navbar-brand white"><img style="height: 70px !important;" src="{% static 'img/favicon.png'%}" alt="logo"></a>
+                        </div>
+                        <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+                            
+                            <ul id="nav" class="nav navbar-nav cl-effect-11">
+                                <li><a class="at-drop-down" href="{% url 'home' %}">Home </a>
+
+                                </li>
+                                <li><a href="https://bestellen.diwalipalace.nl">Order Online</a></li>
+                                <li><a href="{% url 'Menu' %}#menu">Menu</a></li>
+
+                                <li><a href="{% url 'reservation' %}">Reservation</a></li>
+                                <li><a href="{% url 'home' %}#story">about us</a></li>
+
+
+                                </li>
+
+
+                                <li><a href="{% url 'contact' %}">Contact<i class="fa fa-telephone"></i></a></li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!--END MAINMENU AREA END-->
+        </div>
+
+        <!--PAGE BARNER AREA-->
+        <div class="page-barner-area">
+            <div class="container wow fadeIn">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="barner-text">
+                            <h1><span>Menu</span></h1>
+                            <ul class="page-location">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><i class="fa fa-angle-right"></i></li>
+                                <li class="active"><a href="#">Menu</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--PAGE BARNER AREA END-->
+
+    </header>
+
+    <!--Menu section-->
+    <section class="event-area section-padding">
+        <div class="event-area-bg"></div>
+        <div class="container wow fadeIn">
+            <div class="row">
+                <div class="col-12">
+                    <div class="area-title text-center">
+                        <h3>Menu</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn">
+            <div class="row">
+                <div class="col-12">
+                    <div class="prod-container">
+                    <!-- Scroll section -->
+                    <div id="myscrollbar">
+                        <ul class="p-scroll-bar" id="nav-bar">
+                            <li><a target="Soepen">Soepen</a></li>
+                            <li><a target="Nepali_menu">Nepali Menu</a></li>
+                            <li><a target="Voorgerechten">Voorgerechten</a></li>
+                            <li><a target="Momo_gerechten">Momo gerechten</a></li>
+                            <li><a target="Tandoori_gerechten">Tandoori gerechten</a></li>
+                            <li><a target="Kipgerechten">Kipgerechten</a></li>
+                            <li><a target="Lamsgerechten">Lamsgerechten</a></li>
+                            <li><a target="Zeevruchten_gerechten">Zeevruchten gerechten</a></li>
+                            <li><a target="Vegetarische_gerechten">Vegetarische gerechten</a></li>
+                            <li><a target="Biryani_gerechten">Biryani gerechten</a></li>
+                            <li><a target="Extra">Extra's</a></li>
+                            <li><a target="Indiaas_brood">Indiaas brood</a></li>
+                            <li><a target="Nagerechten">Nagerechten</a></li>
+                            <li><a target="Dranken">Dranken</a></li>
+                        </ul>
+                    </div>
+                    <!-- Scroll section -->
+
+                    <!--Product cards  1-->
+                    <div id="Soepen" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_soup.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase">Soepen / Soup</p>
+                                <p class="cate_dis">Indian mild spicy lentil soup.</p>
+                                <p class="cate_dis">Indiase milde gekruide linzensoep.</p>
+                            </div>
+                        </div>
+                        {% for obj in Soepen %}
+                        <div id="a{{obj.id}}" class="pro-card-hov">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 1-->
+
+                    <!--Product cards  1-->
+                    <div id="Nepali_menu" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_nepali dish.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase">Nepali Menu</p>
+                                <p class="cate_dis">Nepalese dishes are medium spicy. If you would like to alter your spiciness, please let us know. 
+All our Nepalese dishes are served with lentil soup as starter, main course with rice and kheer as sweet dessert. 
+</p>
+                                <p class="cate_dis">Nepalese gerechten zijn medium pittig.  Als u wilt uw bijsmaak te veranderen, laat het ons weten. 
+Al onze Nepalese gerechten worden geserveerd met lenzin soep as voor, hoofdgerechten met basmatirijst en Gulab Jamun as desserts.
+</p>
+                            </div>
+                        </div>
+                        {% for obj in Nepali_menu %}
+                        <div id="a{{obj.id}}" class="pro-card-hov">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 1-->
+
+                    <!--Product cards  2-->
+                    <div id="Voorgerechten" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_Appetizer.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase">Voorgerechten / Appetizer</p>
+                                <p class="cate_dis">Vegetarian mixed appetizers selected by the Chef.</p>
+                                <p class="cate_dis">Gemengde vegetarische schotel geselecteerd door de Chef.</p>
+                            </div>
+                        </div>
+                        {% for obj in Voorgerechten %}
+                        <div id="a{{obj.id}}" class="pro-card-hov">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 2-->
+
+                    <!--Product cards  3-->
+                    <div id="Momo_gerechten" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_Vegetable momo.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase">Momo gerechten / Vegetable momo</p>
+                            </div>
+                        </div>
+                        {% for obj in Momo_gerechten %}
+                        <div id="a{{obj.id}}" class="pro-card-hov">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+                           
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 3-->
+
+                    <!--Product cards  4-->
+                    <div id="Tandoori_gerechten" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_TANDOORI DISHES.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase">Tandoori gerechten / TANDOORI DISHES</p>
+                                <p class="cate_dis">We prepare your food freshly so please choose the spiciness of your
+                                    dish as 'Mild', 'Mediam' or 'Hot'. All the tandoori dishes are served with vegetable
+                                    curry and basmati
+                                    rice or special noodles.</p>
+                                <p class="cate_dis">Wij bereiden uw eten vers voor, kies alstublieft de kruidigheid van
+                                    uw
+                                    gerecht als 'Mild', 'Mediam' of 'Hot'. Alle tandoori-gerechten worden geserveerd met
+                                    plantaardige curry en basmati
+                                    rijst of speciale noedels.</p>
+                            </div>
+                        </div>
+                        {% for obj in Tandoori_gerechten %}
+                        <div id="a{{obj.id}}" class="pro-card-hov" class="content">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+                           
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 4-->
+
+                    <!--Product cards  5-->
+                    <div id="Kipgerechten" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_Chicken dishes.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase">Kipgerechten / Chicken dishes</p>
+                                <p class="cate_dis">We prepare your food freshly so please choose the spiciness of your
+                                    dish as 'Mild', 'Mediam' or 'Hot'. All the curry dishesh are served with basmati
+                                    rice.</p>
+                                <p class="cate_dis">Wij breiden uw maaltijd vers; u kunt aangeven hoe pittig u uw
+                                    gerecht wenst te hebben: ‘MILD’, ‘MEDIUM’ OF ’ HEET’. All onze currygerechten worden
+                                    geserveerd met basmatirijst.</p>
+                            </div>
+                        </div>
+                        {% for obj in Kipgerechten %}
+                        <div id="a{{obj.id}}" class="pro-card-hov" class="content">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+                            
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 5-->
+
+                    <!--Product cards  6-->
+                    <div id="Lamsgerechten" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_Lamb dishes.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase">Lamsgerechten / Lamb dishes</p>
+                                <p class="cate_dis ">We prepare your food freshly so please choose the
+                                    spiciness of your dish as 'Mild', 'Mediam' or 'Hot'. All the curry dishesh are
+                                    served with basmati rice.</p>
+                                <p class="cate_dis ">Wij breiden uw maaltijd vers; u kunt aangeven hoe
+                                    pittig u uw
+                                    gerecht wenst te hebben: ‘MILD’, ‘MEDIUM’ OF ’ HEET’. All onze currygerechten worden
+                                    geserveerd met basmatirijst.</p>
+                            </div>
+                        </div>
+                        {% for obj in Lamsgerechten %}
+                        <div id="a{{obj.id}}" class="pro-card-hov">
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+                           
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 6-->
+
+                    <!--Product cards  7-->
+                    <div id="Zeevruchten_gerechten" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_Seafood dishes.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase">Zeevruchten gerechten / Seafood dishes</p>
+                                <p class="cate_dis">We prepare your food freshly so please choose the spiciness of your
+                                    dish as 'Mild', 'Mediam' or 'Hot'. All the curry dishesh are served with basmati
+                                    rice.</p>
+                                <p class="cate_dis">Wij breiden uw maaltijd vers; u kunt aangeven hoe pittig u uw
+                                    gerecht wenst te hebben: ‘MILD’, ‘MEDIUM’ OF ’ HEET’. All onze currygerechten worden
+                                    geserveerd met basmatirijst.</p>
+                            </div>
+                        </div>
+                        {% for obj in Zeevruchten_gerechten %}
+                        <div id="a{{obj.id}}" class="pro-card-hov">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+                            
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 7-->
+
+                    <!--Product cards  8-->
+                    <div id="Vegetarische_gerechten" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_Vegetarian dishes.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase">Vegetarische gerechten / Vegetarian dishes</p>
+                                <p class="cate_dis">We prepare your food freshly so please choose the spiciness of your
+                                    dish as 'Mild', 'Mediam' or 'Hot'. All the curry dishesh are served with basmati
+                                    rice.</p>
+                                <p class="cate_dis">Wij breiden uw maaltijd vers; u kunt aangeven hoe pittig u uw
+                                    gerecht wenst te hebben: ‘MILD’, ‘MEDIUM’ OF ’ HEET’. All onze currygerechten worden
+                                    geserveerd met basmatirijst.</p>
+                            </div>
+                        </div>
+                        {% for obj in Vegetarische_gerechten %}
+                        <div id="a{{obj.id}}" class="pro-card-hov">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+                           
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 8-->
+
+                    <!--Product cards  9-->
+                    <div id="Biryani_gerechten" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_Biryani dishes.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase">Biryani gerechten / Biryani dishes</p>
+                                <p class="cate_dis">We prepare your food freshly so please choose the spiciness of your
+                                    dish as 'Mild', 'Mediam' or 'Hot'. All the curry dishesh are served with basmati
+                                    rice.</p>
+                                <p class="cate_dis">Wij breiden uw maaltijd vers; u kunt aangeven hoe pittig u uw
+                                    gerecht wenst te hebben: ‘MILD’, ‘MEDIUM’ OF ’ HEET’. All onze currygerechten worden
+                                    geserveerd met basmatirijst.</p>
+                            </div>
+                        </div>
+                        {% for obj in Biryani_gerechten %}
+                        <div id="a{{obj.id}}" class="pro-card-hov">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+                            
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 9-->
+
+                    <!--Product cards  10-->
+                    <div id="Extra" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/Extras.png' %}" />
+                            </div>
+                            <div class="namesec">
+                                Extra's
+                            </div>
+                        </div>
+                        {% for obj in Extra %}
+                        <div id="a{{obj.id}}" class="pro-card-hov">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+                            
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 10-->
+
+                    <!--Product cards  11-->
+                    <div id="Indiaas_brood" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_Indian bread.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase">Indiaas brood / Indian bread</p>
+                                <p class="cate_dis">All our naan and roti are freshly baked in the traditional clay
+                                    oven.
+                                </p>
+                                <p class="cate_dis">Al onze naan en roti worden vers gebakken in de traditionele
+                                    kleioven.</p>
+                            </div>
+                        </div>
+                        {% for obj in Indiaas_brood %}
+                        <div id="a{{obj.id}}" class="pro-card-hov">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+                           
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 11-->
+
+                    <!--Product cards  12-->
+                    <div id="Nagerechten" class="content">
+                        <div class="cat-head">
+                            <div class="img-sec">
+                                <img src="{% static 'img/category images/cate_Desserts.jpg' %}" />
+                            </div>
+                            <div class="namesec">
+                                <p class="text-uppercase mb-0" style="margin-bottom: 0;">Nagerechten / Desserts</p>
+                            </div>
+                        </div>
+                        {% for obj in Nagerechten %}
+                        <div id="a{{obj.id}}" class="pro-card-hov">
+
+                            <h4>{{ obj.name }}</h4>
+                            <small>{{obj.description}}</small><br>
+                            <small>{{obj.dutch_description}}</small>
+                            <h5 class="price_color">{{obj.cost}}</h5>
+
+                           
+                            <script>
+                                $(document).ready(function () {
+                                    $("#b{{obj.id}}").hide();
+                                    $("#a{{obj.id}}").click(function () {
+                                        $("#b{{obj.id}}").slideToggle();
+                                    });
+                                });
+                            </script>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Product cards 12-->
+
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--Menu section-->
+
+
+   
+
+ <!--FOOER AREA-->
+    <div class="footer-area">
+        <div class="container wow fadeIn">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="footer-top section-padding text-center">
+                        <div class="footer-logo">
+                            <a href="#"><img src="{% static 'img/favicon.png' %}" alt=""
+                                    style="width: 154px;height: 91px;"></a>
+                        </div>
+                        <div class="footer-address">
+                            <p>Diwali Palace Restaurant, Amsterdamseweg 114,
+                                1182 HH Amstelveen, Netherlands</p>
+                                 <p><a href="callto:+31203642247">+31 20 364 2247</a></p><br>
+                                <p>Piet Mondriaanplein 189-193, 3812 GZ Amersfoort, The Netherlands</p>
+                            <p><a href="callto:+31203642247">+31334618899</a></p>
+                            <p><a href="mailto:info@diwalipalace.nl">info@diwalipalace.nl</a></p>
+                        </div>
+                        <div class="footer-social-bookmark">
+                            <ul>
+                                <li><a href="https://www.facebook.com/diwalipalace001/"><i
+                                            class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/diwalioffice?lang=en"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a
+                                        href="https://www.tripadvisor.in/Restaurant_Review-g1024752-d12185859-Reviews-Diwali_Palace-Amstelveen_North_Holland_Province.html"><i
+                                            class="fa fa-tripadvisor" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="footer-copyright" style="text-align:center !important;">
+                        <p>&copy; 2019 <a href="#">Diwali Palace</a> All Right Reserved. Designed by <a
+                                href="https://quantamixsolutions.com">Quantamix Solution</a></p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <!--FOOER AREA END-->
+    <!--====== SCRIPTS JS ======-->
+    
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    <script>
+        $(function () {
+            $(".review").slice(0, 12).addClass('display');
+            $("#loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+
+        $(function () {
+            $(".b-review").slice(0, 12).addClass('display');
+            $("#breakfast-loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".b-review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+
+        $(function () {
+            $(".l-review").slice(0, 12).addClass('display');
+            $("#lunch-loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".l-review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+
+        $(function () {
+            $(".d-review").slice(0, 12).addClass('display');
+            $("#dinner-loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".d-review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+
+        $(function () {
+            $(".c-review").slice(0, 12).addClass('display');
+            $("#coffee-loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".c-review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+
+        $(function () {
+            $(".s-review").slice(0, 12).addClass('display');
+            $("#snacks-loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".s-review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+    </script>
+
+ 
+
+    <!--====== PLUGINS JS ======-->
+
+    <script src="{% static 'js/vendor/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.pogo-slider.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mixitup.min.js' %}"></script>
+    <script src="{% static 'js/spectragram.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/datepicker.min.js' %}"></script>
+    <script src="{% static 'js/timepicker.min.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/contact-form.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <!--===== ACTIVE JS=====-->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+        window.onscroll = function() {myFunction()};
+
+        var header = document.getElementById("myscrollbar");
+        var sticky = myscrollbar.offsetTop;
+
+        function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+        }
+</script>
+<script>
+      $('#myscrollbar li a').click(function () {
+            var id = $(this).attr('target');
+            $('html, body').stop().animate({
+                  scrollTop: $('#' + id).offset().top-130
+            }, 500);
+      });
+
+      $(window).scroll(function () {
+            var myArray = new Array();
+            $('div.content').each(function () {
+                  myArray.push($(this).offset().top-130);
+            });
+            for (var i = 0; i <= myArray.length; i++) {
+                  if ($(this).scrollTop() >= myArray[i]) {
+                        $('#myscrollbar a').removeClass('h-light');
+                        $('#myscrollbar a').eq(i).addClass('h-light');
+                  }
+            }
+      });    
+</script>
+</body>
+
+</html>

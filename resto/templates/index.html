@@ -1,0 +1,855 @@
+{% load staticfiles %}
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<!-- Mirrored from devitfamily.com/html/owl/demo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Jul 2017 23:24:19 GMT -->
+
+<head>
+    <meta property="og:image" content="{% static 'img/favicon.png' %}">
+    <meta name="twitter:card" content="{% static 'img/favicon.png' %}">
+    <meta property="fb:app_id" content="468579063493515" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="DiwaliPalace, indian restaurant, , amsterdam restaurants nepalese, amsterdam, schiphol airport restaurants, chicken , beef amsterdam, steak beef, diwali palace, number one restaurant, top restaurant, user friendly, Netherlands, Amstelveen, Amsterdamseweg, Amersfoort, diwali palace indian nepalese restaurant">
+    <meta name="description"
+        content="Diwali Palace is regarded as a symbol of royalty and elegance. Here at Diwali Palace, we believe that cooking is a celebration of life and that traditional foods are continuing part of our tradition and culture.">
+    <meta content="DIWALI PALACE | INDIAN NEPALESE RESTAURANT">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137036249-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137036249-2');
+    </script>
+
+    <!--====== TITLE TAG ======-->
+    <title>{% block title %} Home {% endblock %} | Diwali Palace</title>
+
+    <!--====== FAVICON ICON =======-->
+    <link rel="shortcut icon" type="image/ico" href="{% static 'img/favicon.png' %}" />
+
+    <!--====== STYLESHEETS =======-->
+    <!-- <script src="{% static 'script.js' %}"></script> -->
+    <!-- <script src="{% static 'jquery.min.js' %}"></script> -->
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pogo-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/timepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <!--====== MAIN STYLESHEETS ======-->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <style>
+        .menu-active {
+            background: black;
+            color: white !important;
+        }
+
+        .menu-active-back:hover {
+            background: black;
+            color: white;
+        }
+
+        label {
+            color: white !important;
+        }
+
+        .img-fld {
+            width: 100%;
+            height: auto;
+        }
+
+        .modal-foot {
+            background: #d0963e;
+            display: flex;
+            padding: 5px;
+        }
+
+        .m-right {
+            margin-left: auto;
+        }
+
+
+        .checked {
+            color: #ff8000;
+        }
+
+        .pagination-container {
+            margin: 50px auto;
+        }
+
+        .pagination-container ul {
+            padding-inline-start: 0px !important;
+        }
+
+        .custom-pagination {
+            display: inline-flex;
+            list-style: none;
+        }
+
+        .custom-pagination .current {
+            border: 0px solid black;
+            border-radius: 50%;
+            margin: 0 5px;
+            background-color: goldenrod;
+            box-shadow: 0 0px 8px #c0c0c0;
+        }
+
+        .current a {
+            color: white !important;
+        }
+
+        .custom-pagination li {
+            height: 2.5em;
+            width: 2.5em;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .custom-pagination li:hover {
+            border-radius: 50%;
+            background-color: hsl(0, 0%, 87%);
+            box-shadow: 0 0px 8px #c0c0c0;
+        }
+
+        ul.tabs {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        ul.tabs li {
+            background: none;
+            color: #222;
+            display: inline-block;
+            /* padding: 10px 15px; */
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        ul.tabs li.current {
+            color: #fff;
+            background: black;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 15px;
+        }
+
+        .tab-content.current {
+            display: inherit;
+        }
+    </style>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--- PRELOADER -->
+    <div class="preeloader">
+        <div class="preloader-spinner"><i class="fa fa-cutlery"></i></div>
+    </div>
+
+    <!--SCROLL TO TOP-->
+    <a href="#home" class="scrolltotop"><i class="fa fa-long-arrow-up"></i></a>
+
+    <!--START TOP AREA-->
+    <header class="top-area" id="home">
+        <div class="header-top-area">
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-6 col-sm-8">
+                            <div class="call-to-action">
+                                <p><i class="fa fa-envelope-o"></i>Email: <a href="#">info@diwalipalace.nl</a></p>
+                                <p><i class="fa fa-phone"></i>Telephone: <a href="#">+31 20 364 2247</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-lg-6 col-sm-4">
+                            <div class="book-table-popup">
+                                <a href="{% url 'reservation' %}">Book a table</a>
+                            </div>
+                            <div class="top-social-bookmark">
+                                <ul>
+                                    <li><a href="https://www.facebook.com/diwalipalace001/"><i
+                                                class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/diwalioffice?lang=en"><i
+                                                class="fa fa-twitter"></i></a></li>
+                                    <li><a
+                                            href="https://www.tripadvisor.in/Restaurant_Review-g1024752-d12185859-Reviews-Diwali_Palace-Amstelveen_North_Holland_Province.html"><i
+                                                class="fa fa-tripadvisor" aria-hidden="true"></i></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--MAINMENU AREA-->
+            <div class="mainmenu-area" id="mainmenu-area">
+                <div class="mainmenu-area-bg"></div>
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button class="collapsed navbar-toggle" type="button" data-toggle="collapse"
+                                data-target=".bs-example-js-navbar-scrollspy">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="" class="navbar-brand"><img style="height: 50px !important;"
+                                    src="{% static 'img/favicon.png' %}" alt="logo"></a>
+                            <a href="" class="navbar-brand white"><img style="height: 70px !important;"
+                                    src="{% static 'img/favicon.png'%}" alt="logo"></a>
+                        </div>
+                        <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+                            <!-- <div class="search-form-area">
+                                <div class="search-form-overlay"></div>
+                                <a class="search-form-trigger" href="#search-form">Search<span></span></a>
+                                <div id="search-form" class="search-form">
+                                    <form>
+                                        <input type="search" placeholder="Search...">
+                                    </form>
+                                </div>
+                            </div> -->
+                            <ul id="nav" class="nav navbar-nav cl-effect-11">
+                                <li class="active"><a class="at-drop-down" href="{% url 'home' %}">Home </a>
+
+                                </li>
+                                <li><a href="https://bestellen.diwalipalace.nl">Order Online</a></li>
+                                <li><a href="{% url 'Menu' %}">Menu</a></li>
+
+                                <li><a href="{% url 'reservation' %}">Reservation</a></li>
+                                <li><a href="{% url 'home' %}#story">about us</a></li>
+
+
+                                </li>
+
+
+                                <li><a href="{% url 'contact' %}">Contact<i class="fa fa-telephone"></i></a></li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!--END MAINMENU AREA END-->
+
+
+        </div>
+
+        <!--HHOME SLIDER AREA-->
+        <div class="slider-area">
+            <div class="pogoSlider">
+                <div class="pogoSlider-slide" data-transition="fade" data-duration="1500"
+                    style="background:url({% static 'img/slide_1.jpg' %}) no-repeat scroll 0 0 / cover;">
+                    <h2 class="pogoSlider-slide-element" data-in="expand" data-out="expand" data-duration="700">Welcome
+                        to</h2>
+                    <h1 class="pogoSlider-slide-element" data-in="expand" data-out="expand" data-duration="1500">
+                        <span>Diwali Palace</span></h1>
+                    <h1 class="pogoSlider-slide-element" data-in="expand" data-out="expand" data-duration="1500">
+                        <span>Indian Nepalese Restaurant</span> </h1>
+                    <h3 class="pogoSlider-slide-element" data-in="expand" data-out="expand" data-duration="2300"><a
+                            href="{% url 'reservation' %}">Reservation Now</a></h3>
+                </div>
+                <div class="pogoSlider-slide" data-transition="fade"
+                    style="background:url({% static 'img/slide_2.jpg' %}) no-repeat scroll 0 0 / cover;">
+                    <h2 class="pogoSlider-slide-element" data-in="expand" data-out="expand" data-duration="700">Our
+                        menus</h2>
+                    <h1 class="pogoSlider-slide-element" data-in="expand" data-out="expand" data-duration="1500">See
+                        What's <span>new</span> today</h1>
+                    <h3 class="pogoSlider-slide-element" data-in="expand" data-out="expand" data-duration="2300"><a
+                            href="#menu">Todays Menu</a></h3>
+                </div>
+                <div class="pogoSlider-slide" data-transition="fade"
+                    style="background:url({% static 'img/slide_3.jpg' %}) no-repeat scroll 0 0 / cover;">
+                    <h2 class="pogoSlider-slide-element" data-in="expand" data-out="expand" data-duration="700">Get
+                        ready</h2>
+                    <h1 class="pogoSlider-slide-element" data-in="expand" data-out="expand" data-duration="1500">to
+                        <span>Join</span> with us</h1>
+                    <h3 class="pogoSlider-slide-element" data-in="expand" data-out="expand" data-duration="2300"><a
+                            href="{% url 'reservation' %}">Book A Table</a></h3>
+                </div>
+            </div>
+        </div>
+        <!--HOME SLIDER AREA END-->
+
+    </header>
+    <!--END TOP AREA-->
+
+    <!--ABOUT AREA-->
+    <section class="about-area section-padding" id="story">
+        <div class="container wow fadeIn">
+            <div class="row">
+                <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12">
+                    <div class="area-title">
+                        <h2>Our <span>Story</span></h2>
+                    </div>
+                    <div class="about-content">
+                        <p>Whether planning a large dinner party or a warm and intimate lunch or dinner date, choose Diwali Palace (Indian &
+                            Nepalese Restaurant) . The word "fresh" summon-up a range of traits, almost all of which apply to
+                            Diwali Palace (Indian &
+                            Nepalese Restaurant). The great ambiance, excellent food, and exceptional service make for an
+                            incredible dining experience at
+                            Diwali Palace Restaurant.  Come and
+                            enjoy the classic Indian and
+                            Nepalese delights that await you at Diwali Palace (Indian & Nepalese Restaurant).</p>
+                    </div>
+                </div>
+                <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <!-- <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                            <div class="about-img about-mt">
+                                <img src="{% static 'img/about/about_one.jpg' %}" alt="">
+                            </div>
+                        </div> -->
+                        <!-- <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12"> -->
+                        <div class="about-img">
+                            <img src="{% static 'img/about/about_one.jpg' %}" alt="">
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--ABOUT AREA END-->
+
+    <!--PROMOTIONS AREA-->
+    <section class="promotions-area section-padding" id="order">
+        <div class="promotion-area-bg"></div>
+        <div class="container wow fadeIn">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="area-title text-center">
+                        <h2>Order Online </h2>
+                        <h3>Specials Promotion</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                    <div class="single-promotions text-center">
+                        <div class="promotions-img">
+                            <img src="{% static 'img/promotions/promo_2.jpg' %}" alt="">
+                            <div class="pakage-rate">
+                                <p>Form <span>5% off</span></p>
+                            </div>
+                        </div>
+                        <div class="promotions-details">
+                            <h4>Takeaway</h4>
+                            <a href="https://bestellen.diwalipalace.nl" class="read-more">Order now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                    <div class="single-promotions text-center">
+                        <div class="promotions-img">
+                            <img src="{% static 'img/promotions/promo_3.jpg' %}" alt="">
+                            <div class="pakage-rate">
+                                <p>Form <span>5% off</span></p>
+                            </div>
+                        </div>
+                        <div class="promotions-details">
+                            <h4>Home Delivery</h4>
+                            <a href="https://bestellen.diwalipalace.nl" class="read-more">Order now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-lg-2 col-sm-12 col-xs-12">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- modal end     -->
+
+
+    <!--ABOUT US-->
+    <section class="event-area section-padding">
+        <div class="event-area-bg"></div>
+        <div class="container wow fadeIn">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="area-title text-center">
+                        <!-- <h2>Events</h2> -->
+                        <h3>About Us</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container wow fadeIn">
+                <div class="row">
+                    <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                        <div class="about-content about-mt">
+                            <p>Diwali Palace is regarded as a symbol of royalty and elegance. Here at Diwali Palace, we
+                                believe that cooking is a
+                                celebration of life and that traditional foods are continuing part of our tradition and
+                                culture. At Diwali Palace, we
+                                challenge ourselves daily to live up to our name by serving and preparing traditional,
+                                Indian and Nepalese home-style
+                                meals with a lot of passion, devotion, and grace.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+
+                        <div class="about-img">
+                            <img src="{% static 'img/about/about_three.jpg' %}" style="height: 300px; width: 100%;"
+                                alt="">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                        <div class="about-img">
+                            <img src="{% static 'img/about/about_two.jpg' %}" style="height: 300px; width: 100%;"
+                                alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+                        <div class="about-content about-mt">
+                            <p> Our menu features a great range of vegetable dishes, non-vegetarian
+                                dishes and mouth-watering
+                                desserts from India’s rich ethnicity including authentic Nepalese cuisine that tastes as
+                                it
+                                came straight from Nepal.
+                                Every menu item is exclusively tailored with flair and special attention is given to
+                                every
+                                detail is characteristic of
+                                Diwali Palace for every occasion; whether it be a large lunch party, intimate first
+                                date,
+                                family outing or official
+                                dinner. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--ABOUT US END-->
+
+    <!-- TESTIMONIAL -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="area-title text-center" style="margin-top: 60px;">
+                    <h2>Testimonial</h2>
+                    <h3>Hear from our Customer's</h3>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="text-center">
+                {% for obj in feedback %}
+                <div class="col-md-4 col-12 col-sm-6 m-auto">
+                    <figure class="snip1192 t1">
+                        <blockquote>
+                            <div class="row">
+                                <div class="col-md-12" style="margin-bottom:2%;">
+                                    <span style="color: #ff8000;">{{obj.name}}</span>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12" style="margin-bottom:4%;">
+
+                                    {{ obj.date }}
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:2%;">
+                                <div class="col-md-6">
+                                    Food :
+                                </div>
+
+                                <div class="col-md-6">
+
+                                    {% if obj.rate == "1" %}
+
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    {% endif %}
+                                    {% if obj.rate == "2" %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    {% endif %}
+                                    {% if obj.rate == "3" %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    {% endif %}
+                                    {% if obj.rate == "4" %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    {% endif %}
+                                    {% if obj.rate == "5" %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom:4%;">
+                                <div class="col-md-6">
+                                    Delivery:
+                                </div>
+                                <div class="col-md-6">
+                                    {% if obj.rate_2 == "1" %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    {% endif %}
+                                    {% if obj.rate_2 == "2" %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    {% endif %}
+                                    {% if obj.rate_2 == "3" %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    <span class="fa fa-star"></span>
+                                    {% endif %}
+                                    {% if obj.rate_2 == "4" %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star"></span>
+                                    {% endif %}
+                                    {% if obj.rate_2 == "5" %}
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            {{obj.message}}
+                        </blockquote>
+
+                    </figure>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- END TESTIMONIAL -->
+
+    <!--FOOER AREA-->
+    <div class="footer-area">
+        <div class="container wow fadeIn">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="footer-top section-padding text-center">
+                        <div class="footer-logo">
+                            <a href="#"><img src="{% static 'img/favicon.png' %}" alt=""
+                                    style="width: 154px;height: 91px;"></a>
+                        </div>
+                        <div class="footer-address">
+                            <p>Diwali Palace Restaurant, Amsterdamseweg 114,
+                                1182 HH Amstelveen, Netherlands</p>
+                                 <p><a href="callto:+31203642247">+31 20 364 2247</a></p><br>
+                                <p>Piet Mondriaanplein 189-193, 3812 GZ Amersfoort, The Netherlands</p>
+                            <p><a href="callto:+31203642247">+31334618899</a></p>
+                            <p><a href="mailto:info@diwalipalace.nl">info@diwalipalace.nl</a></p>
+                        </div>
+                        <div class="footer-social-bookmark">
+                            <ul>
+                                <li><a href="https://www.facebook.com/diwalipalace001/"><i
+                                            class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/diwalioffice?lang=en"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a
+                                        href="https://www.tripadvisor.in/Restaurant_Review-g1024752-d12185859-Reviews-Diwali_Palace-Amstelveen_North_Holland_Province.html"><i
+                                            class="fa fa-tripadvisor" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="footer-copyright" style="text-align:center !important;">
+                        <p>&copy; 2019 <a href="#">Diwali Palace</a> All Right Reserved. Designed by <a
+                                href="https://quantamixsolutions.com">Quantamix Solution</a></p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <!--FOOER AREA END-->
+    <!--====== SCRIPTS JS ======-->
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    <script>
+        $(function () {
+            $(".review").slice(0, 12).addClass('display');
+            $("#loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+
+        $(function () {
+            $(".b-review").slice(0, 12).addClass('display');
+            $("#breakfast-loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".b-review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+
+        $(function () {
+            $(".l-review").slice(0, 12).addClass('display');
+            $("#lunch-loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".l-review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+
+        $(function () {
+            $(".d-review").slice(0, 12).addClass('display');
+            $("#dinner-loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".d-review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+
+        $(function () {
+            $(".c-review").slice(0, 12).addClass('display');
+            $("#coffee-loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".c-review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+
+        $(function () {
+            $(".s-review").slice(0, 12).addClass('display');
+            $("#snacks-loadMore").on('click', function (e) {
+                e.preventDefault();
+                $(".s-review:hidden").slice(0, 12).addClass('display');
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            $("#div2").hide();
+            $("#preview").click(function () {
+                $("#div2").hide();
+                $("#div1").show();
+            });
+            $("#preview2").click(function () {
+                $("#div1").hide();
+                $("#div2").show();
+            });
+            $('ul.tabs li').click(function () {
+                var tab_id = $(this).attr('data-tab');
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
+                $(this).addClass('current');
+                $("#" + tab_id).addClass('current');
+            })
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#breakfast-show").hide();
+            $("#lunch-show").hide();
+            $("#dinner-show").hide();
+            $("#coffee-show").hide();
+            $("#snacks-show").hide();
+
+            $("#all-hide").click(function () {
+                $("#all-show").show();
+                $("#breakfast-show").hide();
+                $("#lunch-show").hide();
+                $("#dinner-show").hide();
+                $("#coffee-show").hide();
+                $("#snacks-show").hide();
+            });
+
+            $("#breakfast-hide").click(function () {
+                $("#all-show").hide();
+                $("#breakfast-show").show();
+                $("#lunch-show").hide();
+                $("#dinner-show").hide();
+                $("#coffee-show").hide();
+                $("#snacks-show").hide();
+            });
+
+            $("#lunch-hide").click(function () {
+                $("#all-show").hide();
+                $("#breakfast-show").hide();
+                $("#lunch-show").show();
+                $("#dinner-show").hide();
+                $("#coffee-show").hide();
+                $("#snacks-show").hide();
+            });
+
+            $("#dinner-hide").click(function () {
+                $("#all-show").hide();
+                $("#breakfast-show").hide();
+                $("#lunch-show").hide();
+                $("#dinner-show").show();
+                $("#coffee-show").hide();
+                $("#snacks-show").hide();
+            });
+
+            $("#coffee-hide").click(function () {
+                $("#all-show").hide();
+                $("#breakfast-show").hide();
+                $("#lunch-show").hide();
+                $("#dinner-show").hide();
+                $("#coffee-show").show();
+                $("#snacks-show").hide();
+            });
+
+            $("#snacks-hide").click(function () {
+                $("#all-show").hide();
+                $("#breakfast-show").hide();
+                $("#lunch-show").hide();
+                $("#dinner-show").hide();
+                $("#coffee-show").hide();
+                $("#snacks-show").show();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#all-hide").addClass("menu-active");
+
+            $("#all-hide").click(function () {
+                $("#all-hide").addClass("menu-active");
+                $("#breakfast-hide").removeClass("menu-active");
+                $("#lunch-hide").removeClass("menu-active");
+                $("#dinner-hide").removeClass("menu-active");
+                $("#coffee-hide").removeClass("menu-active");
+                $("#snacks-hide").removeClass("menu-active");
+            });
+
+            $("#breakfast-hide").click(function () {
+                $("#breakfast-hide").addClass("menu-active");
+                $("#all-hide").removeClass("menu-active");
+                $("#lunch-hide").removeClass("menu-active");
+                $("#dinner-hide").removeClass("menu-active");
+                $("#coffee-hide").removeClass("menu-active");
+                $("#snacks-hide").removeClass("menu-active");
+            });
+
+            $("#lunch-hide").click(function () {
+                $("#lunch-hide").addClass("menu-active");
+                $("#all-hide").removeClass("menu-active");
+                $("#breakfast-hide").removeClass("menu-active");
+                $("#dinner-hide").removeClass("menu-active");
+                $("#coffee-hide").removeClass("menu-active");
+                $("#snacks-hide").removeClass("menu-active");
+            });
+
+            $("#dinner-hide").click(function () {
+                $("#breakfast-hide").removeClass("menu-active");
+                $("#all-hide").removeClass("menu-active");
+                $("#lunch-hide").removeClass("menu-active");
+                $("#dinner-hide").addClass("menu-active");
+                $("#coffee-hide").removeClass("menu-active");
+                $("#snacks-hide").removeClass("menu-active");
+            });
+
+            $("#coffee-hide").click(function () {
+                $("#breakfast-hide").removeClass("menu-active");
+                $("#all-hide").removeClass("menu-active");
+                $("#lunch-hide").removeClass("menu-active");
+                $("#dinner-hide").removeClass("menu-active");
+                $("#coffee-hide").addClass("menu-active");
+                $("#snacks-hide").removeClass("menu-active");
+            });
+
+            $("#snacks-hide").click(function () {
+                $("#breakfast-hide").removeClass("menu-active");
+                $("#all-hide").removeClass("menu-active");
+                $("#lunch-hide").removeClass("menu-active");
+                $("#dinner-hide").removeClass("menu-active");
+                $("#coffee-hide").removeClass("menu-active");
+                $("#snacks-hide").addClass("menu-active");
+            });
+        });
+    </script>
+
+    <!--====== PLUGINS JS ======-->
+    <script src="{% static 'js/vendor/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.pogo-slider.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mixitup.min.js' %}"></script>
+    <script src="{% static 'js/spectragram.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/datepicker.min.js' %}"></script>
+    <script src="{% static 'js/timepicker.min.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/contact-form.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <!--===== ACTIVE JS=====-->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

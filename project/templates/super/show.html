@@ -1,0 +1,248 @@
+{% extends "super/base.html" %}
+{% load staticfiles %}
+{% block title %} {{ request.user.first_name }}-Invoice {% endblock %}
+{% block content %}
+
+<style>
+  .example-print {
+    display: none;
+  }
+
+  @media print {
+
+    body,
+    h1,
+    h2,
+    h3,
+    ol,
+    ul,
+    div,
+    span,
+    p {
+      display: block !important;
+      width: auto !important;
+      float: none !important;
+      position: static !important;
+      overflow: visible !important;
+    }
+
+    .example-screen {
+      display: none;
+    }
+
+    .example-print {
+      display: block;
+    }
+
+    .newcont {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .header,
+    .hide {
+      visibility: hidden
+    }
+
+    td {
+      display: block;
+    }
+
+    #noprint {
+      display: none !important;
+      height: 0;
+    }
+
+    table {
+      width: auto;
+      overflow: visible;
+      font-size: 0.9vw;
+    }
+
+    @page {
+      size: 25cm 35.7cm;
+      margin: 5mm 5mm 5mm 5mm;
+      /* change the margins as you want them to be. */
+    }
+
+  }
+
+  table {
+    width: auto;
+    overflow: visible;
+    font-size: 0.9vw;
+  }
+
+  .newcont {
+    max-width: 800px;
+    margin: auto;
+  }
+
+  tfoot {
+    display: table-footer-group;
+    vertical-align: middle;
+    border-color: inherit;
+  }
+
+  @media only screen and (max-width: 50px) {
+
+    body {
+      font-size: 1em;
+    }
+
+  }
+</style>
+<div class="wraper container-fluid">
+
+  {% include "super/messages.html" %}
+
+  <div class="row">
+    <section>
+      <div class="section-header">
+        <ol class="breadcrumb">
+          <li class="active">Invoice/{{ order.id }}/{{ order.order.order_type}}</li>
+        </ol>
+      </div>
+      <div class="section-body newcont">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card card-printable style-default-light">
+              <div class="card-head">
+                <div class="tools">
+                  <div class="btn-group">
+                    <a class="btn btn-floating-action btn-primary" href="javascript:void(0);"
+                      onclick="printContent('print')">Print<i class="md md-print"></i></a>
+                  </div>
+                </div>
+              </div>
+              <!--end .card-head -->
+              <div class="header card-body style-default-bright" id="print">
+
+                <!-- BEGIN INVOICE HEADER -->
+                <div class="row">
+                  <!--<div class="col-xs-2">
+                        <img src="{% static 'img/django_logo.png' %}" class="invoice_logo" width="100%">
+                      </div>-->
+                  <div class="col-xs-12 col-md-8">
+
+
+                    <h3 class="text-light" style="margin: 10px 0; color: #f70b0b; ">Diwali&#xA0;<strong
+                        class="text-accent-dark" style="color: #ed6524">Palace</strong></h3>
+                    <p>{{ order.order.resto_type }}<br></p>
+
+                    <h4 class="text-light">Prepared for</h4>
+                    <address>
+                      <strong>{{ order.order.first_name }} {{ order.order.last_name }}</strong><br>
+                      {{ order.order.address }}, {{ order.order.city }}, {{ order.order.postal_code }}.<br>
+                      <strong>{{ order.order.phone_number }}, <em> {{ order.order.email }}</em><strong>
+                    </address>
+                  </div>
+                  <div class="col-xs-12 col-md-4 text-right">
+                    <h4 class="text-light text-center text-default-light">Invoice</h4>
+
+                    <div class="well" style="font-size: 1em;">
+                      <div class="clearfix">
+                        <div class="pull-left"> INVOICE NO : </div>
+                        <div class="pull-right"> {{ order.order_id }} </div>
+                      </div>
+                      <div class="clearfix">
+                        <div class="pull-left"> INVOICE DATE : </div>
+                        <div class="pull-right">{{order.order.created}} </div>
+                      </div>
+                      <div class="clearfix">
+                        <div class="pull-left"> DELEVERY DATE : </div>
+                        <div class="pull-right"> {{ order.order.updated }} </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--end .row -->
+                <!-- END INVOICE HEADER -->
+
+                <!-- BEGIN INVOICE PRODUCTS -->
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12 ">
+
+                    <table class="table table-sm table-responsive-sm" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th class="text-left">ID</th>
+                          <th class="text-left">DESCRIPTION</th>
+                          <th>QUANTITY</th>
+                          <th>TOTAL</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for item in items %}
+                        <tr>
+                          <td class="text-left">{{ item.id }}</td>
+                          <td>{{ item.menuitem }}</td>
+                          <td>{{ item.quantity }}</td>
+                          <td>{{ item.price }} €</td>
+                        </tr>
+                        {% endfor %}
+
+                      </tbody>
+                      <tfoot style="align-content:right !important;">
+                        <tr>
+                          <td class="no-print" colspan="2" rowspan="4"></td>
+
+                          <td><strong>VAT</strong></td>
+                          <td> 0.00€ €</td>
+                        </tr>
+                        <tr>
+                          <td class=""><strong>Total</strong></td>
+                          <td class="">{{ price }} €</td>
+                        </tr>
+                        <tr>
+                          <td class="">Payment Method</td>
+                          {% if order.order.paid == 1 %}
+                          <td class="">ONLINE</td>
+                          {% endif %}
+                          {% if order.order.paid == 0 %}
+                          <td class="">CASH </td>
+                          {% endif %}
+                        </tr>
+                      </tfoot>
+                    </table>
+                    <div class="example-screen">
+                      <h3 class="text-light opacity-50">Invoice notes</h3>
+                      <p>Thankyou for Your Order from diwali palace !</p>
+                      
+                    </div>
+
+                    <div class="example-print">You only see me in the print</div>
+                  </div>
+                  <!--end .col -->
+                </div>
+                <!--end .row -->
+                <!-- END INVOICE PRODUCTS -->
+
+              </div>
+              <!--end .card-body -->
+            </div>
+            <!--end .card -->
+          </div>
+          <!--end .col -->
+        </div>
+        <!--end .row -->
+      </div>
+      <!--end .section-body -->
+    </section>
+
+
+  </div>
+
+  <!-- Page Content Ends -->
+  <script type="text/javascript">
+    function printContent(el) {
+      var restorepage = document.body.innerHTML;
+      var printcontent = document.getElementById(el).innerHTML;
+      document.body.innerHTML = printcontent;
+      window.print();
+      document.body.innerHTML = restorepage;
+    }
+  </script>
+  <!-- ================== -->
+
+  {% endblock %}

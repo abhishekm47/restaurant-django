@@ -1,0 +1,693 @@
+{% load staticfiles %}
+{% load mathfilters %}
+{% load i18n widget_tweaks %}
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+
+<!-- Mirrored from devitfamily.com/html/owl/demo/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Jul 2017 23:26:22 GMT -->
+
+<head>
+    <!--====== USEFULL META ======-->
+     <meta property="og:image" content="{% static 'img/favicon.png' %}">
+  <meta name="twitter:card" content="{% static 'img/favicon.png' %}">
+   <meta property="fb:app_id" content="468579063493515" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">   
+  <meta name="keywords" content="DiwaliPalace, indian restaurant, , amsterdam restaurants nepalese, amsterdam, schiphol airport restaurants, chicken , beef amsterdam, steak beef, diwali palace, number one restaurant, top restaurant, user friendly, Netherlands, Amstelveen, Amsterdamseweg, Amersfoort, diwali palace indian nepalese restaurant">
+  <meta name="description" content="Diwali Palace is regarded as a symbol of royalty and elegance. Here at Diwali Palace, we believe that cooking is a celebration of life and that traditional foods are continuing part of our tradition and culture.">
+  <meta content="DIWALI PALACE | INDIAN NEPALESE RESTAURANT">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137036249-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137036249-2');
+</script>
+
+    <!--====== TITLE TAG ======-->
+    <title>{% block title %} Home {% endblock %} | Diwali Palace</title>
+
+    <!--====== FAVICON ICON =======-->
+    <link rel="shortcut icon" type="image/ico" href="{% static 'img/favicon.png' %}" />
+
+    <!--====== STYLESHEETS ======-->
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stripe.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pogo-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/timepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <!--====== MAIN STYLESHEETS ======-->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+    <style>
+        hr.space {
+            margin: 0px;
+            border: none;
+            padding: 0px;
+            height: 250px;
+        }
+
+        .sm {
+            height: 40px !important;
+        }
+
+        .list-group-item {
+            z-index: 2;
+            color: #fff;
+            background-color: #d0963e;
+            border-color: #d0963e;
+        }
+
+        .list-group-item1 {
+            z-index: 2;
+            color: #fff;
+            background-color: #d0963e;
+            border-color: #d0963e;
+        }
+
+        .list-group-item1:hover {
+            color: #d0963e;
+            background-color: #fff;
+            border: 1px solid #d0963e;
+
+        }
+
+        .checkout-btn {
+            background: #d0963e none repeat scroll 0 0;
+            color: #fff;
+            width: 100%;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 0.5em 4em;
+            border-radius: 50px;
+        }
+
+        .checkout-btn:hover {
+            background: #fff none repeat scroll 0 0;
+            color: #d0963e;
+        }
+
+        .else-btn {
+            background: #d0963e none repeat scroll 0 0;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 0.5em 2em;
+            border-radius: 50px;
+        }
+
+        .else-btn:hover {
+            background: #fff none repeat scroll 0 0;
+            color: #d0963e;
+        }
+
+
+        .card {
+            background: #f5f4f4;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #eeeeee;
+            box-shadow: 0 0 4px #eeeeee;
+        }
+
+        .card-body {
+            padding: 1em 2em;
+            color: hsl(0, 0%, 52%);
+        }
+
+        .pageheader {
+            font-weight: 400;
+            font-size: 1.6em;
+            padding: 1em 1em;
+            margin: 0;
+        }
+
+        .mt {
+            margin: 0 200px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .mt {
+                margin: 0;
+            }
+        }
+    </style>
+
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--- PRELOADER -->
+    <div class="preeloader">
+        <div class="preloader-spinner"><i class="fa fa-cutlery"></i></div>
+    </div>
+
+    <!--SCROLL TO TOP-->
+    <a href="#home" class="scrolltotop"><i class="fa fa-long-arrow-up"></i></a>
+
+    <!--START TOP AREA-->
+    <header class="top-area single-page contact-us-page" id="home">
+        <div class="page-barner-bg"></div>
+        <div class="header-top-area">
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-6 col-sm-8">
+                            <div class="call-to-action">
+                                <p><i class="fa fa-envelope-o"></i>Email: <a href="#">info@diwalipalace.nl</a></p>
+                                <p><i class="fa fa-phone"></i>Telephone: <a href="#">+31 20 364 2247</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-lg-6 col-sm-4">
+                            <div class="book-table-popup">
+                                <a href="{% url 'reservation' %}">Book a table</a>
+                            </div>
+                            <div class="top-social-bookmark">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-feed"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--MAINMENU AREA-->
+            <div class="mainmenu-area" id="mainmenu-area">
+                <div class="mainmenu-area-bg"></div>
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button class="collapsed navbar-toggle" type="button" data-toggle="collapse"
+                                data-target=".bs-example-js-navbar-scrollspy">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="" class="navbar-brand"><img style="height: 50px !important;"
+                                    src="{% static 'img/favicon.png' %}" alt="logo"></a>
+                            <a href="" class="navbar-brand white"><img style="height: 70px !important;"
+                                    src="{% static 'img/favicon.png'%}" alt="logo"></a>
+                        </div>
+                        <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+                            
+                            <!-- <ul id="nav" class="nav navbar-nav cl-effect-11">
+                                <li class="active"><a class="at-drop-down" href="{% url 'home' %}">Home</a>
+                                </li>
+                                <li><a href="{% url 'home' %}#story">about us</a></li>
+                                </li>
+                                <li><a href="{% url 'reservation' %}">Reservation</a></li>
+                                <li><a href="{% url 'home' %}#menu">Menu</a></li>
+                                <li><a href="{% url 'contact' %}">Contact<i class="fa fa-telephone"></i></a></li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!--END MAINMENU AREA END-->
+        </div>
+
+        <!--PAGE BARNER AREA-->
+        <div class="page-barner-area">
+            <div class="container wow fadeIn">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="barner-text">
+                           
+                            <h1>Confirm&#xA0;<span>Your Details</span></h1>
+                            
+                            <ul class="page-location">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><i class="fa fa-angle-right"></i></li>
+                                <li class=""><a href="#">Cart</a></li>
+                                <li><i class="fa fa-angle-right"></i></li>
+                                <li class=""><a href="#">Checkout</a></li>
+                                <li><i class="fa fa-angle-right"></i></li>
+                                <li class="active"><a href="#">Confirm</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--PAGE BARNER AREA END-->
+
+    </header>
+    <!--END TOP AREA-->
+     
+    <!--PROMOTIONS AREA-->
+    <hr class="space sm">
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+            <div id="div1" class="mt" style="">
+                <div class="col-md-6">
+                    <div class="card">
+
+                        <h3 class="pageheader">Confirm Your Details
+                        </h3>
+                        <div class="card-body">
+                            <p><b>Name:</b>&#xA0;{{ order.first_name }}&#xA0;{{ order.last_name }}</p>
+                            <p><b>Email:</b>&#xA0;{{ order.email }}</p>
+                            <p><b>Address:</b>&#xA0;{{ order.address }}&#xA0;, {{ order.city }}, {{ order.postal_code }}
+                            </p>
+                            <p><b>Phone number:</b>&#xA0;{{ order.phone_number }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+
+                        <h3 class="pageheader">Payment Method</h3>
+                        <div class="card-body">
+                            <p>Your order ID is <strong>{{ order.id }}</strong>.</p>
+                            <p> <strong>Order Type:</strong>&#xA0;{{ order.order_type }}</p>
+                            <p> <strong>Address</strong>&#xA0;{{ order.resto_type }}</p>
+                            <hr class='space-m'>
+                      
+                        </div>
+                    </div>
+                    {% if order.order_type == "Home Delivery"%}
+                    <div style="margin-top: 1.5em;" class="pull-right">
+                        <div class="fish">
+                        {% if cart.get_total_price >= 15.00 %}
+                    
+                        <a class="checkout-btn" href="{% url 'orders:charge' order.id %}">Pay</a>
+                        {% else %}
+                        <span class="text-danger"><em>Mimimum order value is € 15.00, add € {{ cart.get_total_price|sub:15.00 }} more to
+                                continue </em></span>
+                        <a href="{% url 'home' %}#order" class="btn btn-default">Continue Shopping</a>
+                        {% endif %}
+                        </div>
+                        <div class="jelly">
+                            {% if cart.get_total_price >= 35.00 %}
+                        
+                            <a class="checkout-btn" href="{% url 'orders:charge' order.id %}">Pay</a>
+                            {% else %}
+                            <span class="text-danger"><em>Mimimum order value is € 35.00, add € {{ cart.get_total_price|sub:35.00 }} more to
+                                    continue </em></span>
+                            <a href="{% url 'home' %}#order" class="btn btn-default">Continue Shopping</a>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    {% endif %}
+                    {% if order.order_type == "Pickup,Fetch"%}
+                    <div style="margin-top: 1.5em;" class="pull-right">
+                            
+                            <a class="checkout-btn" href="{% url 'orders:charge' order.id %}">Pay</a>
+                            
+                        </div>
+                        {% endif %}
+                </div>
+            </div>
+            {% if order.order_type == "Home Delivery" %}
+            <div id="div2" class="mt">
+                <div class="col-md-12 text-center">
+                    <span class="display-3 text-success">
+                
+                        <img src="{% static 'img/cancel_logo.png' %}" style="max-width:100px;" />
+                    </span>
+                    <h2 class="display-3 text-black">Sorry !</h2>
+                    <p class="lead" style="margin-bottom:5rem !important">thank you for your interest in our restaurant we apologize that the services are not available in your area
+                    </p>
+
+                    <span>You are  currently&#xA0;</span><b><span id="distance_value"></span></b><span> &#xA0;away from our nearest restaurant</span><br>
+
+                    <span><b>Current location&#xA0;</b></span><span id="error"></span><br>
+                    
+                    <hr>
+                    <p><a href="{% url 'home' %}" class="checkout-btn">Return to Home</a></p><br>
+                
+                    <span>* Home Delivery/Takeaway is only Available from 12 PM to 10 PM</span><br>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <hr class="space">
+     <!--PROMOTIONS AREA END-->
+{% if order.order_type != "Pickup,Fetch"%}
+    <script type="text/javascript">
+        function ipLookUp() {
+            $.ajax('http://ip-api.com/json')
+                .then(
+                    function success(response) {
+                        // console.log('User\'s Location Data is ', response);
+                        // console.log('User\'s Country', response.country);
+                        getAddress(response.lat, response.lon);
+
+                    },
+
+                    function fail(data, status) {
+                        console.log('Request failed.  Returned status of',
+                            status);
+                    }
+                );
+        }
+
+        function distance(response) {
+            lat1 = response.results[0].geometry.location.lat;
+            lon1 = response.results[0].geometry.location.lat;
+            lat2 = 52.2967722;
+            lon2 = 4.8548275;
+            var R = 6371; // km (change this constant to get miles)
+            var dLat = (lat2 - lat1) * Math.PI / 180;
+            var dLon = (lon2 - lon1) * Math.PI / 180;
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var d = R * c;
+
+
+            return d;
+
+        }
+
+        function lenght(response) {
+            lat1 = response.results[0].geometry.location.lat;
+            lon1 = response.results[0].geometry.location.lat;
+            lat2 = 52.154950;
+            lon2 = 5.374670;
+            var R = 6371; // km (change this constant to get miles)
+            var dLat = (lat2 - lat1) * Math.PI / 180;
+            var dLon = (lon2 - lon1) * Math.PI / 180;
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var d = R * c;
+
+
+            return d;
+
+        }
+
+        function actual(distancex) {
+                        if (distancex>1) return Math.round(distancex)+ "km";
+                        else if (distancex<=1) return Math.round(distancex*1000)+ "m";
+                        return distancex;
+                        }  
+
+
+        function getAddress(latitude, longitude) {
+            $.ajax('https://maps.googleapis.com/maps/api/geocode/json?' +
+                'latlng=' + latitude + ',' + longitude + '&key=AIzaSyCBV5s7QVIj6IL6kbCdPBDwtdaudFncWtg')
+                .then(
+                    function success(response) {
+                        // console.log('User\'s Address Data is ', response)
+                        // console.log('User\'s Address Data is ', response.results[0].geometry.location.lat)
+                        $("#location").text(response.results[0].formatted_address)
+                        $("#error").text(response.results[0].formatted_address)
+                        var distanceval = distance(response);
+                        var distancevec = lenght(response);
+                        if (distanceval <= 7) {
+                            $("#div2").hide();
+                            $("#div1").show();
+                        }
+                        else {
+                            $("#div1").hide();
+                            $("#div2").show();
+                        }
+                        if (distanceval <= 3) {
+                            $("#jelly").hide();
+                            $("#fish").show();
+                        }
+                        else {
+                            $("#fish").hide();
+                            $("#jelly").show();
+                        }
+                        // console.log(distanceval);
+
+                        if (distancevec <= 7) {
+                            $("#div2").hide();
+                            $("#div1").show();
+                        }
+                        else {
+                            $("#div1").hide();
+                            $("#div2").show();
+                        }
+                        if (distancevec <= 3) {
+                            $("#jelly").hide();
+                            $("#fish").show();
+                        }
+                        else {
+                            $("#fish").hide();
+                            $("#jelly").show();
+                        }
+                        // console.log(distancevec);
+
+                        if ( distancevec >= distanceval) {
+                            var actual_distance = distanceval; 
+                        }
+
+                        else {
+                           var actual_distance = distancevec;  
+                        }
+
+                        valx = actual(actual_distance);
+                        
+                        
+                        $("#distance_value").text(valx) 
+                        // console.log(valx); 
+
+
+                    },
+                    function fail(status) {
+                        console.log('Request failed.  Returned status of',
+                            status)
+                    }
+                )
+        }
+
+        if ("geolocation" in navigator) {
+            // check if geolocation is supported/enabled on current browser
+            navigator.geolocation.getCurrentPosition(
+                function success(position) {
+                    // for when getting location is a success
+                    // console.log('latitude', position.coords.latitude,
+                    //     'longitude', position.coords.longitude);
+                    getAddress(position.coords.latitude,
+                        position.coords.longitude)
+                },
+                function error(error_message) {
+                    // for when getting location results in an error
+                    console.error('An error has occured while retrieving' +
+                        'location', error_message)
+                    ipLookUp()
+                });
+        } else {
+            // geolocation is not supported
+            // get your location some other way
+            console.log('geolocation is not enabled on this browser')
+            ipLookUp()
+        }
+
+
+    </script>
+   
+{% else %}
+    <script type="text/javascript">
+        function ipLookUp() {
+            $.ajax('http://ip-api.com/json')
+                .then(
+                    function success(response) {
+                        console.log('User\'s Location Data is ', response);
+                        console.log('User\'s Country', response.country);
+                        getAddress(response.lat, response.lon);
+
+                    },
+
+                    function fail(data, status) {
+                        console.log('Request failed.  Returned status of',
+                            status);
+                    }
+                );
+        }
+
+        function distance(response) {
+            lat1 = response.results[0].geometry.location.lat;
+            lon1 = response.results[0].geometry.location.lat;
+            lat2 = 52.30083;
+            lon2 = 52.30083;
+            var R = 6371; // km (change this constant to get miles)
+            var dLat = (lat2 - lat1) * Math.PI / 180;
+            var dLon = (lon2 - lon1) * Math.PI / 180;
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var d = R * c;
+
+
+            return d;
+
+        }
+
+
+        function getAddress(latitude, longitude) {
+            $.ajax('https://maps.googleapis.com/maps/api/geocode/json?' +
+                'latlng=' + latitude + ',' + longitude + '&key=AIzaSyCBV5s7QVIj6IL6kbCdPBDwtdaudFncWtg')
+                .then(
+                    function success(response) {
+                        console.log('User\'s Address Data is ', response)
+                        console.log('User\'s Address Data is ', response.results[0].geometry.location.lat)
+                        $("#location").text(response.results[0].formatted_address)
+                        $("#error").text(response.results[0].formatted_address)
+                        var distanceval = distance(response);
+                        if (distanceval <= 36000) {
+                            $("#div2").hide();
+                            $("#div1").show();
+                        }
+                        else {
+                            $("#div1").hide();
+                            $("#div2").show();
+                        }
+                        if (distanceval <= 3) {
+                            $("#jelly").hide();
+                            $("#fish").show();
+                        }
+                        else {
+                            $("#fish").hide();
+                            $("#jelly").show();
+                        }
+                        console.log(distanceval);
+                    },
+                    function fail(status) {
+                        console.log('Request failed.  Returned status of',
+                            status)
+                    }
+                )
+        }
+
+        if ("geolocation" in navigator) {
+            // check if geolocation is supported/enabled on current browser
+            navigator.geolocation.getCurrentPosition(
+                function success(position) {
+                    // for when getting location is a success
+                    console.log('latitude', position.coords.latitude,
+                        'longitude', position.coords.longitude);
+                    getAddress(position.coords.latitude,
+                        position.coords.longitude)
+                },
+                function error(error_message) {
+                    // for when getting location results in an error
+                    console.error('An error has occured while retrieving' +
+                        'location', error_message)
+                    ipLookUp()
+                });
+        } else {
+            // geolocation is not supported
+            // get your location some other way
+            console.log('geolocation is not enabled on this browser')
+            ipLookUp()
+        }
+
+
+    </script>
+    {% endif %}
+
+
+
+ <!--FOOER AREA-->
+    <div class="footer-area">
+        <div class="container wow fadeIn">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="footer-top section-padding text-center">
+                        <div class="footer-logo">
+                            <a href="#"><img src="{% static 'img/favicon.png' %}" alt=""
+                                    style="width: 154px;height: 91px;"></a>
+                        </div>
+                        <div class="footer-address">
+                            <p>Diwali Palace Restaurant, Amsterdamseweg 114,
+                                1182 HH Amstelveen, Netherlands</p><br>
+                                <p>Piet Mondriaanplein 189-193, 3812 GZ Amersfoort, The Netherlands</p>
+                            <p><a href="mailto:jembe@gmail.com">info@diwalipalace.nl</a></p>
+                            <p><a href="callto:+2348146235793">+31 20 364 2247</a></p>
+                        </div>
+                        <div class="footer-social-bookmark">
+                            <ul>
+                                <li><a href="https://www.facebook.com/diwalipalace001/"><i
+                                            class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/diwalioffice?lang=en"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a
+                                        href="https://www.tripadvisor.in/Restaurant_Review-g1024752-d12185859-Reviews-Diwali_Palace-Amstelveen_North_Holland_Province.html"><i
+                                            class="fa fa-tripadvisor" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="footer-copyright" style="text-align:center !important;">
+                        <p>&copy; 2019 <a href="#">Diwali Palace</a> All Right Reserved. Designed by <a
+                                href="https://quantamixsolutions.com">Quantamix Solution</a></p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <!--FOOER AREA END-->
+
+
+    <!--====== SCRIPTS JS ======-->
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+
+    <!--====== PLUGINS JS ======-->
+    <script src="{% static 'js/vendor/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.pogo-slider.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mixitup.min.js' %}"></script>
+    <script src="{% static 'js/spectragram.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/datepicker.min.js' %}"></script>
+    <script src="{% static 'js/timepicker.min.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/contact-form.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'js/stripe.js' %}"></script>
+
+    <!--===== ACTIVE JS=====-->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

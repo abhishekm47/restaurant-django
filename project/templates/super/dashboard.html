@@ -1,0 +1,446 @@
+{% extends "super/base.html" %}
+{% load staticfiles %}
+{% load app_filters %}
+{% block title %} {{ request.user.first_name }}-dashboard {% endblock %}
+{% block content %}
+<div id="sales" class="wraper container-fluid">
+
+    {% include "super/messages.html" %}
+
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="widget-panel widget-style-2 bg-pink">
+                <i class="ion-eye"></i>
+                <h4 class="m-0 counter">{{ reservations.count }}</h4>
+                <div>Total Reservations</div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="widget-panel widget-style-2 bg-purple">
+                <i class="ion-ios7-locked "></i>
+                <h4 class="m-0 counter">{{ pending.count }}</h4>
+                <div>Pending Reservations</div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="widget-panel widget-style-2 bg-info">
+                <i class="ion-ios7-paw"></i>
+                <h4 class="m-0 counter">{{ confirmed.count }}</h4>
+                <div>Confirmed Reservations</div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="widget-panel widget-style-2 bg-warning">
+                <i class="ion-ios7-people "></i>
+                <h4 class="m-0 counter">{{ users.count }}</h4>
+                <div>Total <br>Staff</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="widget-panel widget-style-2 bg-primary">
+                <i class="ion-ios7-cart"></i>
+                <h4 class="m-0 counter">{{ orderitem.count }}</h4>
+                <div>Online Food-Order's</div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="widget-panel widget-style-2 bg-success">
+                <i class="ion-ios7-checkmark"></i>
+                <h4 class="m-0 counter">{{ order_confirmed.count }}</h4>
+                <div> Food-Order's Confirmed</div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="widget-panel widget-style-2 bg-danger">
+                <i class="ion-ios7-close"></i>
+                <h4 class="m-0 counter">{{ order_pending.count }}</h4>
+                <div> Food-Order's pending</div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="widget-panel widget-style-2 bg-purple">
+                <i class="ion-ios7-world"></i>
+                <h4 class="m-0 counter">{{ price }} €</h4>
+                <div> Total Sales</div>
+            </div>
+        </div>
+
+    </div> <!-- end row -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#menu1">Active Online Orders </a></li>
+                        <li><a data-toggle="tab" href="#menu2">Table Reservations</a></li>
+                        <li class=""><a data-toggle="tab" href="#menu3">All Orders </a></li>
+                    </ul>
+                    <button id="stop" class="btn-primary pull-right mb-3" onclick="stopAlram()">Quit Alram</button>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="tab-content">
+                            <div id="menu1" class="tab-pane fade in active  table-responsive">
+                                <table id="datatable1" class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Actions</th>
+                                            <th>Order_id</th>
+                                            <th>Created</th>
+                                            <th>Order Type / Branch</th>
+                                            <th>Personal details</th>
+                                            <th>Order Status</th>
+                                            <th>Payment</th>
+
+
+
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        {% for obj in orderitem %}
+                                        {% ifchanged obj.order_id %}
+                                        {% if obj.status != "none" %}
+                                        {% if obj.status != "Complete" %}
+
+
+
+
+
+
+
+                                        <td>
+                                            <div style="display: flex;">
+                                                <div class="t-btn2 bt-hov">
+                                                    <a href="{% url 'orders:update_Order' pk=obj.pk%}" title="Edit"><i
+                                                            class="fa fa-pencil"></i></a>
+                                                </div>
+                                                <!-- <div>
+                                                        <form method="post" action="{% url 'order_delete' obj.pk %}"
+                                                            class="js-book-delete-form">
+                                                            {% csrf_token %}
+                                                            <button type="submit" class="t-btn1 delete bt-hov" title="Delete"><i
+                                                                    class="fa fa-trash"></i></button>
+                                                        </form>
+                                                    </div> -->
+                                                <div class="t-btn1 invoice bt-hov"><a
+                                                        href="{% url 'show' obj.order_id %}" title="Print"><i
+                                                            class="fa fa-print"></i></a>
+                                                </div>
+
+                                            </div>
+                                        </td>
+                                        <td id="oderidvalue">{{ obj.order_id }}</td>
+
+
+
+                                        <td>{{ obj.order.created }}</td>
+
+                                        <td>{% if obj.order.order_type == "Pickup,Fetch" %}
+                                            <span class="badge" style="background: Tomato;">
+                                                {{ obj.order.order_type }}</span>
+                                            {% endif %}
+                                            {% if obj.order.order_type == "Home Delivery" %}
+                                            <span class="badge" style="background: Orange;">
+                                                {{ obj.order.order_type }}</span>
+                                            {% endif %}
+                                            <br>
+                                            <strong>{{ obj.order.resto_type }} </strong>
+                                        </td>
+
+                                        <td><a href="#">{{ obj.order.first_name }}
+                                                {{ obj.order.last_name }}</a>
+                                            <br>{{ obj.order.phone_number }}<br>{{ obj.order.email }}<br>{{ obj.order.address }},{{ obj.order.postal_code }}
+                                        </td>
+
+                                        <td><span class="badge" style="background: #0aa89e"> {{ obj.status }}</span>
+                                        </td>
+                                        <td>{% if obj.order.paid == 1 %}
+                                            <span class="badge" style="background:MediumSeaGreen;">Online Payment</span>
+                                            {% endif %}
+                                            {% if obj.order.paid == 0 %}
+                                            <span class="badge" style="background: Red;">Cash payment</span>
+                                            {% endif %}
+                                        </td>
+
+
+                                        </tr>
+                                        {% endif %}
+                                        {% endif %}
+                                        {% endifchanged %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div id="menu2" class="tab-pane fade table-responsive">
+                                <table id="datatable" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Owner</th>
+                                            <th>Time reserved</th>
+                                            <th>Date reserved</th>
+                                            <th>Branch</th>
+                                            <th>Comment </th>
+                                            <th>people</th>
+                                            <th>status</th>
+                                            <th>Button</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for obj in reservations %}
+                                        <tr>
+                                            <td>{{ obj.first_name }} {{ obj.last_name }}</td>
+                                            <td>{{ obj.time }}</td>
+                                            <td>{{ obj.date_reserved }}</td>
+                                            <td>{{ obj.resto_type }}</td>
+                                            <td>{{obj.comment}}</td>
+                                            <td>{{ obj.people }}</td>
+                                            <td>{{ obj.status }}</td>
+                                            <td>
+                                                <div style="display: flex;">
+                                                    <div class="t-btn2 bt-hov">
+                                                        <a href="{% url 'update_reservation' pk=obj.pk%}"
+                                                            title="Edit"><i class="fa fa-pencil"></i></a>
+                                                    </div>
+                                                    <div>
+                                                        <form method="post"
+                                                            action="{% url 'reservation_delete' obj.pk %}"
+                                                            class="js-book-delete-form">
+                                                            {% csrf_token %}
+                                                            <button type="submit" class="t-btn1 delete bt-hov"
+                                                                title="Delete"><i class="fa fa-trash"></i></button>
+                                                        </form>
+                                                    </div>
+
+
+                                                </div>
+
+
+
+
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div id="menu3" class="tab-pane fade in   table-responsive">
+                                <table id="datatable" class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Actions</th>
+                                            <th>Order ID</th>
+
+                                            <th>Created</th>
+                                            <th>Order Type / Branch</th>
+                                            <th>Personal details</th>
+                                            <th>Order Status</th>
+                                            <th>Payment</th>
+
+
+
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        {% for obj in orderitem %}
+                                        {% ifchanged obj.order_id %}
+                                        {% if obj.status != "none" %}
+                                        <tr>
+                                            <td>
+                                                <div style="display: flex;">
+                                                    <div class="t-btn2 bt-hov">
+                                                        <a href="{% url 'orders:update_Order' pk=obj.pk%}"
+                                                            title="Edit"><i class="fa fa-pencil"></i></a>
+                                                    </div>
+                                                    <!-- <div>
+                                                        <form method="post" action="{% url 'order_delete' obj.pk %}"
+                                                            class="js-book-delete-form">
+                                                            {% csrf_token %}
+                                                            <button type="submit" class="t-btn1 delete bt-hov" title="Delete"><i
+                                                                    class="fa fa-trash"></i></button>
+                                                        </form>
+                                                    </div> -->
+                                                    <div class="t-btn1 invoice bt-hov"><a
+                                                            href="{% url 'show' obj.order_id %}" title="Print"><i
+                                                                class="fa fa-print"></i></a>
+                                                    </div>
+
+                                                </div>
+                                            </td>
+                                            <td>{{ obj.order_id }}</td>
+
+
+                                            <td>{{ obj.order.created }}</td>
+
+                                            <td>{% if obj.order.order_type == "Pickup,Fetch" %}
+                                                <span class="badge" style="background: Tomato;">
+                                                    {{ obj.order.order_type }}</span>
+                                                {% endif %}
+                                                {% if obj.order.order_type == "Home Delivery" %}
+                                                <span class="badge" style="background: Orange;">
+                                                    {{ obj.order.order_type }}</span>
+                                                {% endif %}
+                                                <br>
+                                                <strong>{{ obj.order.resto_type }} </strong>
+                                            </td>
+
+                                            <td><a href="#">{{ obj.order.first_name }}
+                                                    {{ obj.order.last_name }}</a>
+                                                <br>{{ obj.order.phone_number }}<br>{{ obj.order.email }}<br>{{ obj.order.address }},{{ obj.order.postal_code }}
+                                            </td>
+
+                                            <td><span class="badge" style="background: #0aa89e"> {{ obj.status }}</span>
+                                            </td>
+                                            <td>{% if obj.order.paid == 1 %}
+                                                <span class="badge" style="background:MediumSeaGreen;">Online
+                                                    Payment</span>
+                                                {% endif %}
+                                                {% if obj.order.paid == 0 %}
+                                                <span class="badge" style="background: Red;">Cash payment</span>
+                                                {% endif %}
+                                            </td>
+
+
+                                        </tr>
+                                        {% endif %}
+                                        {% endifchanged %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</div>
+<!-- Page Content Ends -->
+<script type="text/javascript">
+    $(function () {
+
+        /* Functions */
+
+        var loadForm = function () {
+            var btn = $(this);
+            $.ajax({
+                url: btn.attr("data-url"),
+                type: 'get',
+                dataType: 'json',
+                beforeSend: function () {
+                    $("#modal-book .modal-content").html("");
+                    $("#modal-book").modal("show");
+                },
+                success: function (data) {
+                    $("#modal-book .modal-content").html(data.html_form);
+                }
+            });
+        };
+
+        var saveForm = function () {
+            var form = $(this);
+            $.ajax({
+                url: form.attr("action"),
+                data: form.serialize(),
+                type: form.attr("method"),
+                dataType: 'json',
+                success: function (data) {
+                    if (data.form_is_valid) {
+                        $("#book-table tbody").html(data.html_book_list);
+                        $("#modal-book").modal("hide");
+                    } else {
+                        $("#modal-book .modal-content").html(data.html_form);
+                    }
+                }
+            });
+            return false;
+        };
+
+
+        /* Binding */
+
+        // Create book
+        $(".js-create-book").click(loadForm);
+        $("#modal-book").on("submit", ".js-book-create-form", saveForm);
+
+        // Update book
+        $("#book-table").on("click", ".js-update-book", loadForm);
+        $("#modal-book").on("submit", ".js-book-update-form", saveForm);
+
+        // Delete book
+        $("#book-table").on("click", ".js-delete-book", loadForm);
+        $("#modal-book").on("submit", ".js-book-delete-form", saveForm);
+
+    });
+</script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript">
+var audio = new Audio("{% static 'assets/Loud_Alarm_Clock_Buzzer-Muk1984-493547174.mp3' %}");
+    function refresh() {
+        $.ajax({
+            url: "{% url 'dashboard' %}",
+            success: function (data) {
+                $('#sales').replaceWith($('#sales', data));
+            }
+        });
+
+    };
+
+
+    $(document).ready(function ($) {
+        //refresh();
+        //var int = setInterval("refresh()", 6000);
+        var oldvalue = $("#oderidvalue").text();
+        var stopped = false;        
+        
+        setInterval(function () {
+
+            omzetvandaag = $("#oderidvalue").text();
+            var newData = omzetvandaag;
+
+            if (newData > oldvalue) {
+                oldvalue = newData;
+
+                audio.play();
+                audio.addEventListener('ended', function () {
+
+                    this.currentTime = 0;
+                    this.play();
+
+                }, false);
+            }
+
+
+        }, 6000)
+
+
+    });
+
+    function stopAlram() {
+      
+        audio.pause();
+        
+    }
+
+
+</script>
+
+
+
+<!-- ================== -->
+{% endblock %}

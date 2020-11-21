@@ -1,0 +1,754 @@
+{% load staticfiles %}
+{% load i18n widget_tweaks %}
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+
+<!-- Mirrored from devitfamily.com/html/owl/demo/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 07 Jul 2017 23:26:22 GMT -->
+
+<head>
+    <!--====== USEFULL META ======-->
+    <meta property="og:image" content="{% static 'img/favicon.png' %}">
+    <meta name="twitter:card" content="{% static 'img/favicon.png' %}">
+    <meta property="fb:app_id" content="468579063493515" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords"
+        content="DiwaliPalace, indian restaurant, , amsterdam restaurants nepalese, amsterdam, schiphol airport restaurants, chicken , beef amsterdam, steak beef, diwali palace, number one restaurant, top restaurant, user friendly, Netherlands, Amstelveen, Amsterdamseweg, Amersfoort, diwali palace indian nepalese restaurant">
+    <meta name="description"
+        content="Diwali Palace is regarded as a symbol of royalty and elegance. Here at Diwali Palace, we believe that cooking is a celebration of life and that traditional foods are continuing part of our tradition and culture.">
+    <meta content="DIWALI PALACE | INDIAN NEPALESE RESTAURANT">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137036249-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137036249-2');
+    </script>
+
+    <!--====== TITLE TAG ======-->
+    <title>{% block title %} Home {% endblock %} | Diwali Palace</title>
+
+    <!--====== FAVICON ICON =======-->
+    <link rel="shortcut icon" type="image/ico" href="{% static 'img/favicon.png' %}" />
+
+    <!--====== STYLESHEETS ======-->
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pogo-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/datepicker.css' %}">
+    <link rel="stylesheet" href="{% static 'css/timepicker.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <!--====== MAIN STYLESHEETS ======-->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+
+    <script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <style>
+        input {
+            border: 1px dashed;
+            border-radius: 0;
+            box-shadow: 0 0 0 0;
+            font-style: italic;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            max-height: 130px;
+            min-height: 45px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        p label {
+            display: none !important;
+        }
+
+        input:focus {
+            border-color: #d0963e;
+            outline: 0 none;
+        }
+
+        hr.space {
+            margin: 0px;
+            border: none;
+            padding: 0px;
+            height: 230px;
+        }
+
+        .list-group-item {
+            z-index: 2;
+            color: #fff;
+            background-color: #d0963e;
+            border-color: #d0963e;
+        }
+
+        .list-group-item1 {
+            z-index: 2;
+            color: #fff;
+            background-color: #d0963e;
+            border-color: #d0963e;
+        }
+
+        .list-group-item1:hover {
+            color: #d0963e;
+            background-color: #fff;
+            border: 1px solid #d0963e;
+
+        }
+
+        #id_order_type {
+            height: 40px;
+            width: 148px;
+        }
+
+        #id_order_type:focus {
+            border-color: #d0963e;
+            outline: 0 none;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #regForm {
+            background-color: #ffffff;
+            margin: 10px auto;
+
+            padding: 20px;
+            width: 80%;
+            min-width: 300px;
+            height: 100%
+        }
+
+
+        /* Mark input boxes that gets an error on validation: */
+        input.invalid {
+            background-color: #ffdddd;
+        }
+
+        /* Hide all steps by default: */
+        .tab {
+            display: none;
+        }
+
+        button {
+            background-color: #5584ff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        #prevBtn {
+            background-color: #bbbbbb;
+        }
+
+        /* Make circles that indicate the steps of the form: */
+        .step {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbbbbb;
+            border: none;
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.5;
+        }
+
+        .step.active {
+            opacity: 1;
+        }
+
+        /* Mark the steps that are finished and valid: */
+        .step.finish {
+            background-color: #5584ff;
+        }
+
+        .job_type {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .sub_type {
+            border: 1px solid;
+            padding: 8px 80px;
+            cursor: pointer;
+            margin-bottom: 8px;
+            margin-right: 5px;
+        }
+
+        .form-controlWidth {
+            width: 25%;
+        }
+
+        .myRadio>label {
+            white-space: normal;
+            float: left;
+            clear: none;
+            display: block;
+            margin: 4px 0 0;
+
+        }
+
+        .myRadio2>label {
+            white-space: normal;
+            width: 75%;
+            float: left;
+            clear: none;
+            display: block;
+            margin: 4px 0 0;
+            line-height: 3.5em;
+        }
+
+        input[type=radio] {
+            width: auto;
+            height: 10px;
+            float: left;
+            clear: none;
+            margin-right: 7%;
+            align-items: left;
+        }
+
+        .checkout-btn {
+            background: #d0963e none repeat scroll 0 0;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 0.5em 2em;
+
+        }
+
+        .checkout-btn:hover {
+            background: #fff none repeat scroll 0 0;
+            color: #d0963e;
+        }
+
+        .card {
+            background: #f5f4f4;
+            height: 250px;
+            border-radius: 5px;
+            border: 1px solid #eeeeee;
+            box-shadow: 0 0 4px #eeeeee;
+        }
+
+        .card-body {
+            padding: 0em 2em;
+            color: hsl(0, 0%, 52%);
+        }
+
+        .pageheader {
+            font-weight: 400;
+            font-size: 1.6em;
+            padding: 1em 1em;
+            margin: 0;
+        }
+
+        .mt {
+            margin: 0 200px;
+        }
+
+
+        .order-detail.order-total {
+            border: none;
+        }
+
+        .order-detail {
+            width: 100%;
+            display: block;
+        }
+
+        .bg-light {
+            background: #f8f9fa !important;
+        }
+
+        .sub_total {
+            padding: 6px;
+            padding-left: 0px;
+        }
+
+        .font_weight {
+            font-weight: 600;
+        }
+
+        .span_padding {
+            padding: 5px;
+        }
+
+        input[type=image] {
+            margin-left: -19px;
+            padding-top: 10px;
+        }
+
+        .d-flex {
+            display: -webkit-box !important;
+            display: -ms-flexbox !important;
+            display: flex !important;
+        }
+
+        .p-md-4 {
+            padding: 1.5rem !important;
+        }
+
+        .borderstyle {
+            border: 1px dashed;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .mt {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--- PRELOADER -->
+    <div class="preeloader">
+        <div class="preloader-spinner"><i class="fa fa-cutlery"></i></div>
+    </div>
+
+    <!--SCROLL TO TOP-->
+    <a href="#home" class="scrolltotop"><i class="fa fa-long-arrow-up"></i></a>
+
+    <!--START TOP AREA-->
+    <header class="top-area single-page contact-us-page" id="home">
+        <div class="page-barner-bg"></div>
+        <div class="header-top-area">
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7 col-lg-6 col-sm-8">
+                            <div class="call-to-action">
+                                <p><i class="fa fa-envelope-o"></i>Email: <a href="#">info@diwalipalace.nl</a></p>
+                                <p><i class="fa fa-phone"></i>Telephone: <a href="#">+31 20 364 2247</a></p>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-lg-6 col-sm-4">
+                            <div class="book-table-popup">
+                                <a href="{% url 'reservation' %}">Book a table</a>
+                            </div>
+                            <div class="top-social-bookmark">
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-feed"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--MAINMENU AREA-->
+            <div class="mainmenu-area" id="mainmenu-area">
+                <div class="mainmenu-area-bg"></div>
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button class="collapsed navbar-toggle" type="button" data-toggle="collapse"
+                                data-target=".bs-example-js-navbar-scrollspy">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="" class="navbar-brand"><img style="height: 50px !important;"
+                                    src="{% static 'img/favicon.png' %}" alt="logo"></a>
+                            <a href="" class="navbar-brand white"><img style="height: 70px !important;"
+                                    src="{% static 'img/favicon.png'%}" alt="logo"></a>
+                        </div>
+                        <div class="collapse navbar-collapse bs-example-js-navbar-scrollspy">
+
+                            <!-- <ul id="nav" class="nav navbar-nav cl-effect-11">
+                                <li class="active"><a class="at-drop-down" href="{% url 'home' %}">Home</a>
+
+                                </li>
+                                <li><a href="{% url 'home' %}#story">about us</a></li>
+
+
+                                </li>
+                                <li><a href="{% url 'reservation' %}">Reservation</a></li>
+                                <li><a href="{% url 'home' %}#menu">Menu</a></li>
+                                <li><a href="{% url 'contact' %}">Contact<i class="fa fa-telephone"></i></a></li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!--END MAINMENU AREA END-->
+        </div>
+
+        <!--PAGE BARNER AREA-->
+        <div class="page-barner-area">
+            <div class="container wow fadeIn">
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="barner-text">
+                            <h1>Check&#xA0;&#xA0;<span>out</span></h1>
+                            <ul class="page-location">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><i class="fa fa-angle-right"></i></li>
+                                <li class=""><a href="#">Cart</a></li>
+                                <li><i class="fa fa-angle-right"></i></li>
+                                <li class="active"><a href="#">Checkout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--PAGE BARNER AREA END-->
+
+    </header>
+    <!--END TOP AREA-->
+
+    <!--PROMOTIONS AREA-->
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+            <div class="col-md-12 col-sm-10 col-12">
+
+                <div class="row">
+
+
+                    {# error logic #}
+                    {% for field, errors in form.errors.items %}
+                    <div class="alert alert-danger alert-dismissible">
+                        {% for error in errors %}
+                        <center> <strong>{{ error|escape }}</strong></center>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                    <div>
+                        <form id="regForm" class="form-horizontal" role="form" method="post"
+                            enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="tab">
+                                <h4 class="">Please choose from one of our branch</h4>
+                                <div class="form-group">
+
+                                    <div class="col-md-10">
+                                        <select name="resto_type" label="Select our restaurant branch"
+                                            placeholder="Select your option"
+                                            class="form-control borderstyle placeholder:select your option input-medium"
+                                            id="id_resto_type" style="width:80% !important;">
+                                            <option value="0" selected>----Select one option----</option>
+                                            <option
+                                                value="Amsterdamseweg 114 Next to Molen, 1182 HH, Amstelveen The Netherlands"
+                                                >Amsterdamseweg 114 Next to Molen, 1182 HH, Amstelveen The
+                                                Netherlands</option>
+
+                                            <option
+                                                value="Piet Mondriaanplein 189-193, 3812 GZ Amersfoort, The Netherlands">
+                                                Piet Mondriaanplein 189-193, 3812 GZ Amersfoort, The Netherlands
+                                            </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="errormsg1" style="color:red;display:none;">Please select atleast one option to countinue</div>
+
+                                <h4 class="">How would you like to get your order</h4>
+                                <div class="form-group">
+
+                                    <div class="col-md-10">
+                                        <select name="order_type" label="Select your order type"
+                                            placeholder="Select your option" class="form-control borderstyle input-medium"
+                                            id="id_order_type" style="width:80% !important;">
+                                            <option value="0" selected>----Select one option----</option>
+
+                                            <option value="Home Delivery">Home Delivery</option>
+
+                                            <option value="Pickup,Fetch">Pickup,Fetch</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="errormsg2" style="color:red;display:none;">Please select atleast one option to countinue</div>
+
+
+                            </div>
+
+                            <div class="tab">
+                                <h4 class="page-header">Fill your personal details</h4>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+
+                                            <div class="col-md-10">
+                                                {{ form.first_name | attr:"class:form-control borderstyle"  }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <div class="col-md-10">
+                                                {{ form.last_name | attr:"class:form-control borderstyle"  }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <div class="col-md-10">
+                                                {{ form.email | attr:"class:form-control borderstyle"   }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <div class="col-md-10">
+                                                {{ form.address| attr:"class:form-control borderstyle" }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <div class="col-md-10">
+                                                {{ form.postal_code| attr:"class:form-control borderstyle" }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+
+                                            <div class="col-md-10">
+                                                {{ form.city| attr:"class:form-control borderstyle" }}
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <div class="col-md-10">
+                                                {{ form.phone_number| attr:"class:form-control borderstyle" }}
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-4 col-sm-2 col-12">
+                                        <div class="page-header" style="padding-bottom: 4px;margin:0px !important;">
+                                            Your Order
+                                        </div>
+                                        <ul class="list-group">
+                                            {% for item in cart %}
+                                            <li class="list-group-item">
+                                                {{ item.quantity }}x {{ item.product.name }}
+                                                <span>€&#xA0; {{ item.total_price }}</span>
+                                            </li>
+                                            {% endfor %}
+
+                                            <li class="list-group-item">Total Cost: €&#xA0; {{ cart.get_total_price }}
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="display: none;">
+                                <div class="col-md-10">
+                                    <center><button id="finalSubmit" class="btn btn-primary"
+                                            type="submit">Countinue</button>
+                                    </center>
+                                </div>
+                            </div>
+                            <div style="overflow:auto;">
+                                <div style="float:right;">
+                                    <button type="button" class="checkout-btn" id="prevBtn" onclick="nextPrev(-1)"
+                                        style="margin-top:35%;">Previous</button>
+                                    <button type="button" class="checkout-btn" id="nextBtn" onclick="nextPrev(1)"
+                                        style="margin-top:35%;">Next </button>
+
+                                </div>
+                            </div>
+                            <!-- Circles which indicates the steps of the form: -->
+                            <div style="text-align:center;margin-top:40px;">
+                                <span class="step"></span>
+                                <span class="step"></span>
+                                <span class="step"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- End row -->
+
+        <hr class="space">
+    </div>
+
+    </div>
+    </div>
+    <!--PROMOTIONS AREA END-->
+
+
+
+    <!--FOOER AREA-->
+    <div class="footer-area">
+        <div class="container wow fadeIn">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="footer-top section-padding text-center">
+                        <div class="footer-logo">
+                            <a href="#"><img src="{% static 'img/favicon.png' %}" alt=""
+                                    style="width: 154px;height: 91px;"></a>
+                        </div>
+                        <div class="footer-address">
+                            <p>Diwali Palace Restaurant, Amsterdamseweg 114,
+                                1182 HH Amstelveen, Netherlands</p><br>
+                            <p>Piet Mondriaanplein 189-193, 3812 GZ Amersfoort, The Netherlands</p>
+                            <p><a href="mailto:jembe@gmail.com">info@diwalipalace.nl</a></p>
+                            <p><a href="callto:+2348146235793">+31 20 364 2247</a></p>
+                        </div>
+                        <div class="footer-social-bookmark">
+                            <ul>
+                                <li><a href="https://www.facebook.com/diwalipalace001/"><i
+                                            class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/diwalioffice?lang=en"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a
+                                        href="https://www.tripadvisor.in/Restaurant_Review-g1024752-d12185859-Reviews-Diwali_Palace-Amstelveen_North_Holland_Province.html"><i
+                                            class="fa fa-tripadvisor" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="footer-copyright" style="text-align:center !important;">
+                        <p>&copy; 2019 <a href="#">Diwali Palace</a> All Right Reserved. Designed by <a
+                                href="https://quantamixsolutions.com">Quantamix Solution</a></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--FOOER AREA END-->
+
+
+    <!--====== SCRIPTS JS ======-->
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+
+    <!--====== PLUGINS JS ======-->
+    <script src="{% static 'js/vendor/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.pogo-slider.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mixitup.min.js' %}"></script>
+    <script src="{% static 'js/spectragram.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/datepicker.min.js' %}"></script>
+    <script src="{% static 'js/timepicker.min.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/contact-form.js' %}"></script>
+    <script src="{% static 'js/jquery.sticky.js' %}"></script>
+
+    <!--===== ACTIVE JS=====-->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        $("#id_check").val(2);
+        var currentTab = 0;
+        showTab(currentTab); // Display the current tab
+
+        function showTab(n) {
+            var x = document.getElementsByClassName("tab");
+            x[n].style.display = "block";
+            if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+            } else {
+                document.getElementById("prevBtn").style.display = "inline";
+            }
+            if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+            } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+            }
+            fixStepIndicator(n)
+        }
+
+
+        function nextPrev(n) {
+
+            var x = document.getElementsByClassName("tab");
+            var restotype = $("#id_resto_type").val();
+            var ordertype = $("#id_order_type").val();
+            if (restotype == 0){
+                $("#errormsg1").show();
+                return false;
+            }
+            else{
+                $("#errormsg1").hide();
+            }
+            if (ordertype == 0){
+                $("#errormsg2").show();
+                return false;
+            }
+            else{
+                $("#errormsg2").hide();
+            }
+            if (n == 1 && !validateForm()) return false;
+            // Hide the current tab:
+            x[currentTab].style.display = "none";
+            // Increase or decrease the current tab by 1:
+            currentTab = currentTab + n;
+            if (currentTab >= x.length) {
+                document.getElementById("finalSubmit").click();
+                return false;
+            }
+            showTab(currentTab);
+        }
+
+        function validateForm() {
+            var x, y, i, valid = true;
+            x = document.getElementsByClassName("tab");
+            y = x[currentTab].getElementsByTagName("input");
+            for (i = 0; i < y.length; i++) {
+
+                if (y[i].value == "") {
+                    y[i].className += " invalid";
+                    valid = false;
+                }
+            }
+            if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+            }
+            return valid; // return the valid status
+        }
+
+        function fixStepIndicator(n) {
+            var i, x = document.getElementsByClassName("step");
+            for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+            }
+            x[n].className += " active";
+        }
+    </script>
+</body>
+
+</html>

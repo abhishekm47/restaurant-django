@@ -1,0 +1,142 @@
+
+{% load staticfiles %}
+{% block title %} {{ request.user.first_name }}-Invoice {% endblock %}
+{% block content %}
+<style>
+.inline { 
+    display: inline-block; 
+    }
+    .well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+
+.clearfix{
+  display: table;
+}
+td, th {
+  border: 1px solid #dddddd;
+  
+}
+</style>
+<div style="width:520px;margin:auto;">
+                  <div class="header card-body style-default-bright" id="print">
+
+                    <!-- BEGIN INVOICE HEADER -->
+                    <div>
+                      <!--<div class="col-xs-2">
+                        <img src="{% static 'img/django_logo.png' %}" class="invoice_logo" width="100%">
+                      </div>-->
+                      <div  style="margin-bottom:10px;">
+                        <h1 class="text-light" style="margin-top: 0px; color: #f70b0b;">Diwali<strong class="text-accent-dark" style="color: #ed6524">Palace</strong></h1>
+                        <p>{{ order.order.resto_type }}<br></p>
+                      </div>
+                      
+                    </div><!--end .row -->
+                    <!-- END INVOICE HEADER -->
+
+                    <br/>
+
+                    <!-- BEGIN INVOICE DESCRIPTION -->
+                    <div >
+                      <div style="margin-bottom:30px;">
+                        <h4 class="text-light">Billed to:</h4>
+                        <address>
+                          <strong>{{ order.order.first_name }} {{ order.order.last_name }}</strong><br>
+                          {{ order.order.address }}, {{ order.order.city }}, {{ order.order.postal_code }}.<br>
+                          <strong>{{ order.order.phone_number }}, <em> {{ order.order.email }}</em><strong>
+                        </address>
+                      </div><!--end .col -->
+                      <div >
+                        <div class="well" style="margin-bottom:20px;">
+                            <h4 class="text-light">Invoice details:</h4>
+                            <table style="width:50%;border:none;">
+                               
+                                <tr>
+                                  <td>INVOICE NO :</td>
+                                  <td>{{ order.order_id }}</td>
+                                  
+                                </tr>
+                                <tr>
+                                  <td>INVOICE DATE :</td>
+                                  <td>{{order.order.created}} </td>
+                                  
+                                </tr>
+                                <tr>
+                                    <td>DELEVERY DATE :</td>
+                                    <td>{{ order.order.updated }}</td>
+                                    
+                                  </tr>
+                              </table> 
+                          
+                        </div>
+                      </div><!--end .col -->
+                    </div><!--end .row -->
+                    <!-- END INVOICE DESCRIPTION -->
+
+                    <br/>
+
+                    <!-- BEGIN INVOICE PRODUCTS -->
+                    <div style="margin-top:30px;">
+                    
+                        <table style="width:100%;">
+                       
+                            <tr>
+                              <th style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; ">ID</th>
+                              <th style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; ">DESCRIPTION</th>
+                              <th style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; ">QUANTITY</th>
+                              <th style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; " >TOTAL</th>
+                            </tr>
+                          
+                       
+                            {% for item in items %}
+                            <tr align="center" style="border-bottom: 2px #ebeaef; ">
+                              <td style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; ">{{ item.id }}</td>
+                              <td style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; ">{{ item.menuitem }}</td>
+                              <td style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; ">{{ item.quantity }}</td>
+                              <td style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; ">{{ item.price }}  €</td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                              <td colspan="2" rowspan="4">
+                                <h3 class="text-light opacity-50">Invoice notes</h3>
+                                <p><small><em>In case of any inconvenience or return and delay please kindly contact us at info@diwalipalace.nl | +31 20 364 2247 </em></small></p>
+                                <p><strong><em>Received By __________________</em></strong></p>
+                              </td>
+                              <td style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; "><strong>Subtotal</strong></td>
+                              <td style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; "> {{ price }}  €</td>
+                            </tr>
+                            <tr>
+                              <td style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; "><strong>VAT</strong></td>
+                              <td style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; ">0.00€</td>
+                            </tr>
+                            <tr>
+                              <td style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; "><strong class="text-lg text-accent">Total</strong></td>
+                              <td style="vertical-align: top;text-align: left;border-bottom-width: 1px;border-bottom-color: #ebeaef;border-bottom-style: solid;padding: 1em 0; "><strong class="text-lg text-accent"> {{ price }} €</strong></td>
+                            </tr>
+                         
+                        </table>
+                    
+                    </div><!--end .row -->
+                    <!-- END INVOICE PRODUCTS -->
+
+                  </div><!--end .card-body -->
+                </div><!--end .card -->
+              </div><!--end .col -->
+            </div><!--end .row -->
+          </div><!--end .section-body -->
+                </section>
+            
+
+            </div>
+          </div>
+            
+            <!-- ================== -->
+            
+{% endblock %}
